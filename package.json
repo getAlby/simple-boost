@@ -1,7 +1,6 @@
 {
   "name": "simple-boost",
-  "private": true,
-  "version": "1.0.4",
+  "version": "1.0.0",
   "description": "The one-click tipping button for your website",
   "main": "dist/simple-boost.js",
   "module": "dist/simple-boost.js",
