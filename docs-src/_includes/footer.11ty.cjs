@@ -2,8 +2,7 @@ module.exports = function (data) {
   return `
 <footer>
   <p>
-    Made with
-    <a href="https://github.com/lit/lit-element-starter-ts">lit-starter-ts</a>
+    Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
   </p>
 </footer>`;
 };

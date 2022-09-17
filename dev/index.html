@@ -3,20 +3,76 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>&lt;my-element> Demo</title>
+    <title>&lt;simple-boost> Demo</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../my-element.js"></script>
+    <script type="module" src="../dist/simple-boost.js"></script>
     <style>
       p {
         border: solid 1px blue;
         padding: 8px;
       }
+
+      .black {
+        border: 2px solid black;
+      }
+      :root {
+        --simple-boost-text-color: blue;
+      }
     </style>
   </head>
   <body>
-    <my-element>
-      <p>This is child content</p>
-    </my-element>
+    <simple-boost
+      method="keysend"
+      address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
+      custom-key="696969"
+      custom-value="3wQCCrfOAMYNzOh1sL05"
+      no-confetti="1"
+      theme="bootstrap-filled"
+    >
+      Boost YAy
+    </simple-boost>
+
+    <simple-boost amount="10" address="bumi@getalby.com" theme="default"
+      >default</simple-boost
+    >
+    <simple-boost amount="10" address="bumi@getalby.com" theme="hey"
+      >hey</simple-boost
+    >
+    <simple-boost amount="10" address="bumi@getalby.com" theme="figma"
+      >figma</simple-boost
+    >
+    <simple-boost amount="10" address="bumi@getalby.com" theme="figma-filled"
+      >figma filled</simple-boost
+    >
+    <simple-boost amount="10" address="bumi@getalby.com" theme="next"
+      >next</simple-boost
+    >
+    <simple-boost amount="10" address="bumi@getalby.com" theme="next-filled"
+      >next-filled</simple-boost
+    >
+    <simple-boost
+      amount="10"
+      address="bumi@getalby.com"
+      theme="bootstrap"
+      style="foo: bar"
+      >bootstrap</simple-boost
+    >
+    <simple-boost
+      amount="10"
+      address="bumi@getalby.com"
+      theme="bootstrap-filled"
+      >bootstrap-filled</simple-boost
+    >
+    <simple-boost address="bumi@getalby.com" theme="gumroad"></simple-boost>
+    <simple-boost amount="10" address="bumi@getalby.com" theme="gumroad">
+      asda
+    </simple-boost>
+    <simple-boost
+      amount="10"
+      currency="rwf"
+      address="bumi@getalby.com"
+      theme="bootstrap"
+    ></simple-boost>
   </body>
 </html>

@@ -1,11 +1,12 @@
 /node_modules/
+/docs/node_modules/
 /lib/
 /test/
 custom-elements.json
 # top level source
-my-element.js
-my-element.js.map
-my-element.d.ts
-my-element.d.ts.map
+simple-boost.js
+simple-boost.js.map
+simple-boost.d.ts
+simple-boost.d.ts.map
 # only generated for size check
-my-element.bundled.js
+simple-boost.bundled.js

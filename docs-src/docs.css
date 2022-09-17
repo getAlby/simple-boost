@@ -35,14 +35,18 @@ header {
   justify-content: center;
   height: 360px;
   margin: 0;
-  background: linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-  color: white;
+  background: rgb(
+    248,
+    196,
+    85
+  ); //linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+  color: black;
 }
 
 footer {
   width: 100%;
   min-height: 120px;
-  background: gray;
+  background: rgb(39, 40, 40);
   color: white;
   display: flex;
   flex-direction: column;
@@ -155,7 +159,8 @@ th {
   font-weight: 600;
 }
 
-td, th {
+td,
+th {
   border: solid 1px #aaa;
   padding: 4px;
   text-align: left;

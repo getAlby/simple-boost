@@ -1,0 +1,87 @@
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><simple-boost> ⌲ Examples ⌲ Keysend</title>
+    <link rel="stylesheet" href="../../docs.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
+    <link href="../../prism-okaidia.css" rel="stylesheet" />
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/lit/polyfill-support.js"></script>
+    <script type="module" src="../../simple-boost.bundled.js"></script>
+  </head>
+  <body>
+    
+<header>
+  <h1>&lt;simple-boost></h1>
+  <h2>The one-click tipping button</h2>
+</header>
+    
+<nav>
+  <a href="../../">Home</a>
+  <a href="../">Examples</a>
+  <a href="../../api/">API</a>
+  <a href="../../install/">Install</a>
+</nav>
+    <div id="main-wrapper">
+      <main>
+        
+    <h1>Example: Keysend</h1>
+    <section class="examples">
+      <nav class="collection">
+        <ul>
+          
+                  <li class=>
+                    <a href="../">A basic example</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../disable-confetti/">Disable confetti</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../fiat-amounts/">Fiat amounts</a>
+                  </li>
+                
+                  <li class=selected>
+                    <a href="">Keysend</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../lightning-address/">Lightning Address Support</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../events/">JavaScript Events</a>
+                  </li>
+                
+        </ul>
+      </nav>
+      <div>
+        <p>Keysend payments are widely used in the podcasting Value 4 Value community. You can use simple-boost with the same keysend information.</p>
+<p><simple-boost
+method="keysend"
+address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
+custom-key="696969"
+custom-value="3wQCCrfOAMYNzOh1sL05"
+amount="2000"
+theme="bootstrap-filled">Boost!</simple-boost></p>
+<h3>HTML</h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>node-pub-key<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><br>  <span class="token attr-name">theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bootstrap-filled<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span>Boost!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><br><span class="token punctuation">></span></span></code></pre>
+
+      </div>
+    </section>
+  
+      </main>
+    </div>
+    
+<footer>
+  <p>
+    Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
+  </p>
+</footer>
+  </body>
+</html>

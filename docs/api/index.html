@@ -5,19 +5,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><my-element> ⌲ Docs</title>
+    <title><simple-boost> ⌲ Docs</title>
     <link rel="stylesheet" href="../docs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
     <link href="../prism-okaidia.css" rel="stylesheet" />
     <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="/node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../my-element.bundled.js"></script>
+    <script type="module" src="../simple-boost.bundled.js"></script>
   </head>
   <body>
     
 <header>
-  <h1>&lt;my-element></h1>
-  <h2>A web component just for me.</h2>
+  <h1>&lt;simple-boost></h1>
+  <h2>The one-click tipping button</h2>
 </header>
     
 <nav>
@@ -31,9 +31,9 @@
         
      <h1>API</h1>
      
-       <h2>&lt;my-element></h2>
+       <h2>&lt;simple-boost></h2>
        <div>
-         An example element.
+         The simple-boost tipping component
        </div>
        
    <h3>Attributes</h3>
@@ -43,11 +43,35 @@
      </tr>
      
        <tr>
-         <td>name</td><td>The name to say "Hello" to.</td><td>string</td><td>'World'</td>
+         <td>address</td><td>The recipient. Either a LNURL-pay/Lightning Address or a node pubkey</td><td>string</td><td>''</td>
        </tr>
      
        <tr>
-         <td>count</td><td>The number of times the button has been clicked.</td><td>number</td><td>0</td>
+         <td>amount</td><td>The payment amount. Either denominated in sats (default) or in a defined fiat currency.</td><td>number</td><td>100</td>
+       </tr>
+     
+       <tr>
+         <td>currency</td><td>Currency of the payment. Defaults to sats. If a fiat currency (e.g. USD, EUR, etc.) is used the amount will be converted to sats on payment</td><td>string</td><td>'sats'</td>
+       </tr>
+     
+       <tr>
+         <td>method</td><td>The lightning payment method to use (lnurl or keysend)</td><td>string</td><td>'lnurl'</td>
+       </tr>
+     
+       <tr>
+         <td>custom-key</td><td>The name of a custom record key to send along with the keysend payment. Only used for keysend payments</td><td>null</td><td>null</td>
+       </tr>
+     
+       <tr>
+         <td>custom-value</td><td>A custom value to pass along with the payment. This is considered the value that belongs to the customKey. Only used for keysend payments</td><td>null</td><td>null</td>
+       </tr>
+     
+       <tr>
+         <td>no-confetti</td><td>Disable the confetti after a payment is sent</td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>theme</td><td>The button theme. Supported options: default, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad</td><td>string</td><td>'default'</td>
        </tr>
      
    </table>
@@ -60,11 +84,47 @@
      </tr>
      
        <tr>
-         <td>name</td><td>name</td><td>The name to say "Hello" to.</td><td>string</td><td>'World'</td>
+         <td>address</td><td>address</td><td>The recipient. Either a LNURL-pay/Lightning Address or a node pubkey</td><td>string</td><td>''</td>
        </tr>
      
        <tr>
-         <td>count</td><td>count</td><td>The number of times the button has been clicked.</td><td>number</td><td>0</td>
+         <td>amount</td><td>amount</td><td>The payment amount. Either denominated in sats (default) or in a defined fiat currency.</td><td>number</td><td>100</td>
+       </tr>
+     
+       <tr>
+         <td>currency</td><td>currency</td><td>Currency of the payment. Defaults to sats. If a fiat currency (e.g. USD, EUR, etc.) is used the amount will be converted to sats on payment</td><td>string</td><td>'sats'</td>
+       </tr>
+     
+       <tr>
+         <td>method</td><td>method</td><td>The lightning payment method to use (lnurl or keysend)</td><td>string</td><td>'lnurl'</td>
+       </tr>
+     
+       <tr>
+         <td>customKey</td><td>custom-key</td><td>The name of a custom record key to send along with the keysend payment. Only used for keysend payments</td><td>null</td><td>null</td>
+       </tr>
+     
+       <tr>
+         <td>customValue</td><td>custom-value</td><td>A custom value to pass along with the payment. This is considered the value that belongs to the customKey. Only used for keysend payments</td><td>null</td><td>null</td>
+       </tr>
+     
+       <tr>
+         <td>noConfetti</td><td>no-confetti</td><td>Disable the confetti after a payment is sent</td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>theme</td><td>theme</td><td>The button theme. Supported options: default, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad</td><td>string</td><td>'default'</td>
+       </tr>
+     
+       <tr>
+         <td>isLoading</td><td></td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>jsConfetti</td><td></td><td></td><td></td><td>new JSConfetti()</td>
+       </tr>
+     
+       <tr>
+         <td>formattedAmount</td><td></td><td></td><td></td><td></td>
        </tr>
      
    </table>
@@ -77,19 +137,7 @@
      </tr>
      
        <tr>
-         <td>sayHello</td><td>
-   
-   <table>
-     <tr>
-       <th>Name</th><th>Description</th><th>Type</th>
-     </tr>
-     
-       <tr>
-         <td>name</td><td>The name to say "Hello" to</td><td>string</td>
-       </tr>
-     
-   </table>
- </td><td>Formats a greeting</td><td>string</td>
+         <td>getAmountInSats</td><td></td><td></td><td></td>
        </tr>
      
    </table>
@@ -102,7 +150,7 @@
      </tr>
      
        <tr>
-         <td>count-changed</td><td>Indicates when the count changes</td>
+         <td>success</td><td>Indicates when a payment was sent</td>
        </tr>
      
    </table>
@@ -141,8 +189,7 @@
     
 <footer>
   <p>
-    Made with
-    <a href="https://github.com/lit/lit-element-starter-ts">lit-starter-ts</a>
+    Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
   </p>
 </footer>
   </body>
