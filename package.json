@@ -37,12 +37,12 @@
   ],
   "keywords": [
     "web-components",
-    "lit-element",
-    "typescript",
-    "lit"
+    "lightning",
+    "bitcoin",
+    "value4value"
   ],
-  "author": "Google LLC",
-  "license": "BSD-3-Clause",
+  "author": "Alby",
+  "license": "MIT",
   "types": "simple-boost.d.ts",
   "dependencies": {
     "js-confetti": "^0.10.2",
