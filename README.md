@@ -1,4 +1,4 @@
-# <simple-boost> - Lightning Payment Button
+# simple-boost - The Lightning Payment Button
 
 A web component button to trigger a WebLN payment request. The easiest and fastest way for your website visitors to send you sats.
 
