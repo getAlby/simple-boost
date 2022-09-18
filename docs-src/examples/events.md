@@ -9,7 +9,7 @@ description: JavaScript Events
 Subscibe to the `success` event to get notified once a user has paid and execute custom code.
 
 <simple-boost id="boost" no-confetti="true" address="hello@getalby.com">
-  Send sats for support
+  drop 100 sats
 </simple-boost>
 <script>
   document.getElementById('boost').addEventListener('success', (e) => {
@@ -22,7 +22,7 @@ Subscibe to the `success` event to get notified once a user has paid and execute
 
 ```html
 <simple-boost id="boost" no-confetti="true" address="hello@getalby.com">
-  Send sats for support
+  drop 100 sats
 </simple-boost>
 <script>
   document.getElementById('boost').addEventListener('success', (e) => {

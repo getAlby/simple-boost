@@ -8,7 +8,7 @@ description: Fiat amounts
 
 You can define the amounts in fiat currency (e.g. usd, eur, gbp, etc.) The amount will be converted on the fly to satoshis to generate the lightning invoice.
 
-<simple-boost currency="usd" amount="5" theme="gumroad" address="hello@getalby.com"></simple-boost>
+<simple-boost currency="usd" amount="5" class="gumroad" address="hello@getalby.com"></simple-boost>
 
 <h3>HTML</h3>
 
@@ -16,7 +16,7 @@ You can define the amounts in fiat currency (e.g. usd, eur, gbp, etc.) The amoun
 <simple-boost
   currency="usd"
   amount="5"
-  theme="gumroad"
+  class="gumroad"
   address="hello@getalby.com"
 ></simple-boost>
 ```

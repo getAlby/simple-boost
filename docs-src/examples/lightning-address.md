@@ -10,13 +10,13 @@ Simply receive boosts on your [Lightning Address](https://lightningaddress.com/)
 
 Use your Lightning Address in the `address` attribute.
 
-<simple-boost address="hello@getalby.com" theme="bootstrap"></simple-boost>
+<simple-boost address="hello@getalby.com" class="bootstrap"></simple-boost>
 
 <h3>HTML</h3>
 
 ```html
 <simple-boost
   address="you@walletofsatoshi.com"
-  theme="bootstrap"
+  class="bootstrap"
 ></simple-boost>
 ```

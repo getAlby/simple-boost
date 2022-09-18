@@ -14,7 +14,7 @@ address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
 custom-key="696969"
 custom-value="3wQCCrfOAMYNzOh1sL05"
 amount="2000"
-theme="bootstrap-filled">Boost!</simple-boost>
+class="bootstrap-filled">Boost!</simple-boost>
 
 <h3>HTML</h3>
 
@@ -23,7 +23,7 @@ theme="bootstrap-filled">Boost!</simple-boost>
   address="node-pub-key"
   custom-key="..."
   custom-value="..."
-  theme="bootstrap-filled"
+  class="bootstrap-filled"
   >Boost!</simple-boost
 >
 ```
