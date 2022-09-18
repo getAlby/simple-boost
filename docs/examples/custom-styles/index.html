@@ -1,0 +1,93 @@
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><simple-boost> ⌲ Examples ⌲ Custom Style</title>
+    <link rel="stylesheet" href="../../docs.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
+    <link href="../../prism-okaidia.css" rel="stylesheet" />
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/lit/polyfill-support.js"></script>
+    <script type="module" src="../../simple-boost.bundled.js"></script>
+  </head>
+  <body>
+    
+<header>
+  <h1>&lt;simple-boost></h1>
+  <h2>The one-click tipping button</h2>
+</header>
+    
+<nav>
+  <a href="../../">Home</a>
+  <a href="../">Examples</a>
+  <a href="../../api/">API</a>
+  <a href="../../install/">Install</a>
+</nav>
+    <div id="main-wrapper">
+      <main>
+        
+    <h1>Example: Styles</h1>
+    <section class="examples">
+      <nav class="collection">
+        <ul>
+          
+                  <li class=>
+                    <a href="../">A basic example</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../disable-confetti/">Disable confetti</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../fiat-amounts/">Fiat amounts</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../keysend/">Keysend</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../lightning-address/">Lightning Address Support</a>
+                  </li>
+                
+                  <li class=>
+                    <a href="../events/">JavaScript Events</a>
+                  </li>
+                
+                  <li class=selected>
+                    <a href="">Custom Styles</a>
+                  </li>
+                
+        </ul>
+      </nav>
+      <div>
+        <p>You can use one of the pre-defined themes or completely custom style your boost button.</p>
+<p>Possible themes are: alby, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad, spotify</p>
+<p>To customize the style use your own CSS class or style.</p>
+<simple-boost class="hey" address="hello@getalby.com">
+  hey boooooost!
+</simple-boost>
+<simple-boost class="spotify" address="hello@getalby.com">
+  Spotify boooooost!
+</simple-boost>
+<simple-boost class="my-boost" style="border:1px solid red; padding:5px" address="hello@getalby.com"></simple-boost>
+<h3>HTML</h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hey<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  boooooost!<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>spotify<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  boooooost!<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">border</span><span class="token punctuation">:</span>1px solid red<span class="token punctuation">;</span> <span class="token property">padding</span><span class="token punctuation">:</span>5px</span><span class="token punctuation">"</span></span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+
+      </div>
+    </section>
+  
+      </main>
+    </div>
+    
+<footer>
+  <p>
+    Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
+  </p>
+</footer>
+  </body>
+</html>

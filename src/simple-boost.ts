@@ -57,7 +57,7 @@ export class SimpleBoost extends LitElement {
   @property({type: Boolean, attribute: 'no-confetti'})
   noConfetti = false;
   /**
-   * The button theme. Supported options: default, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad
+   * The button theme. Supported options: alby, default, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad, spotify
    */
   @property({type: String})
   theme = 'default';

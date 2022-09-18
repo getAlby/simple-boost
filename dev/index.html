@@ -8,16 +8,18 @@
     <script src="../node_modules/lit/polyfill-support.js"></script>
     <script type="module" src="../dist/simple-boost.js"></script>
     <style>
+      body {
+        font-family: verdana;
+      }
       p {
         border: solid 1px blue;
         padding: 8px;
       }
 
-      .black {
+      .my-boost {
         border: 2px solid black;
-      }
-      :root {
-        --simple-boost-text-color: blue;
+        background: red;
+        padding: 3px;
       }
     </style>
   </head>
@@ -28,51 +30,58 @@
       custom-key="696969"
       custom-value="3wQCCrfOAMYNzOh1sL05"
       no-confetti="1"
-      theme="bootstrap-filled"
+      class="bootstrap-filled"
     >
       Boost YAy
     </simple-boost>
 
-    <simple-boost amount="10" address="bumi@getalby.com" theme="default"
-      >default</simple-boost
+    <simple-boost amount="10" address="bumi@getalby.com" class="my-boost"
+      >mine</simple-boost
     >
-    <simple-boost amount="10" address="bumi@getalby.com" theme="hey"
+    <simple-boost amount="10" address="bumi@getalby.com" class="hey"
       >hey</simple-boost
     >
-    <simple-boost amount="10" address="bumi@getalby.com" theme="figma"
+    <simple-boost amount="10" address="bumi@getalby.com" class="figma"
       >figma</simple-boost
     >
-    <simple-boost amount="10" address="bumi@getalby.com" theme="figma-filled"
+    <simple-boost amount="10" address="bumi@getalby.com" class="figma-filled"
       >figma filled</simple-boost
     >
-    <simple-boost amount="10" address="bumi@getalby.com" theme="next"
+    <simple-boost amount="10" address="bumi@getalby.com" class="next"
       >next</simple-boost
     >
-    <simple-boost amount="10" address="bumi@getalby.com" theme="next-filled"
+    <simple-boost amount="10" address="bumi@getalby.com" class="next-filled"
       >next-filled</simple-boost
+    >
+    <simple-boost amount="10" address="bumi@getalby.com" class="spotify"
+      >spotify</simple-boost
+    >
+    <simple-boost amount="10" address="bumi@getalby.com" class="alby"
+      >alby</simple-boost
     >
     <simple-boost
       amount="10"
       address="bumi@getalby.com"
-      theme="bootstrap"
+      class="bootstrap"
       style="foo: bar"
       >bootstrap</simple-boost
     >
     <simple-boost
       amount="10"
       address="bumi@getalby.com"
-      theme="bootstrap-filled"
+      class="bootstrap-filled"
       >bootstrap-filled</simple-boost
     >
-    <simple-boost address="bumi@getalby.com" theme="gumroad"></simple-boost>
-    <simple-boost amount="10" address="bumi@getalby.com" theme="gumroad">
+    <simple-boost address="bumi@getalby.com" class="gumroad"></simple-boost>
+    <simple-boost amount="10" address="bumi@getalby.com" class="gumroad">
       asda
     </simple-boost>
     <simple-boost
+      style="border: 2px solid red"
       amount="10"
       currency="rwf"
       address="bumi@getalby.com"
-      theme="bootstrap"
+      class="bootstrap"
     ></simple-boost>
   </body>
 </html>

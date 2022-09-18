@@ -1,12 +1,15 @@
 import { css } from 'lit';
 export const styles = css `
   :host {
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
   }
 
   ::slotted(*) {
   }
 
-  .simple-boost-button.default {
+  :host(.default) .simple-boost-button {
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -26,20 +29,18 @@ export const styles = css `
     box-shadow: inset 0 0 0 2px #616467;
     background-color: transparent;
   }
-  .simple-boost-button.default:hover {
+  :host(.default:hover) .simple-boost-button {
     color: #fff;
     background-color: #616467;
   }
 
-  .simple-boost-button.hey {
+  :host(.hey) .simple-boost-button {
     display: inline-block;
     outline: 0;
     border: none;
     box-shadow: none;
     cursor: pointer;
     padding: 9px 22px;
-    font-size: 22px;
-    height: 50px;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -49,11 +50,11 @@ export const styles = css `
     transition: color 0.2s ease, background-color 0.2s ease,
       box-shadow 0.2s ease;
   }
-  .simple-boost-button.hey:hover {
+  :host(.hey:hover) .simple-boost-button {
     box-shadow: 0 0 0 0.15rem #5ceace;
   }
 
-  .simple-boost-button.figma {
+  :host(.figma) .simple-boost-button {
     display: inline-block;
     outline: 0;
     border: 0;
@@ -67,11 +68,11 @@ export const styles = css `
     color: #000000;
     box-shadow: 0 0 0 3px #000000 inset;
   }
-  .simple-boost-button.figma:hover {
+  :host(.figma:hover) .simple-boost-button {
     transform: translateY(-2px);
   }
 
-  .simple-boost-button.figma-filled {
+  :host(.figma-filled) .simple-boost-button {
     display: inline-block;
     outline: 0;
     border: 0;
@@ -84,11 +85,11 @@ export const styles = css `
     line-height: 1;
     transition: transform 200ms, background 200ms;
   }
-  .simple-boost-button.figma-filled:hover {
+  :host(.figma-filled:hover) .simple-boost-button {
     transform: translateY(-2px);
   }
 
-  .simple-boost-button.next {
+  :host(.next) .simple-boost-button {
     display: inline-block;
     outline: 0;
     cursor: pointer;
@@ -102,12 +103,12 @@ export const styles = css `
     box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
     transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   }
-  .simple-boost-button.next:hover {
+  :host(.next:hover) .simple-boost-button {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
   }
 
-  .simple-boost-button.next-filled {
+  :host(.next-filled) .simple-boost-button {
     display: inline-block;
     outline: 0;
     cursor: pointer;
@@ -121,12 +122,12 @@ export const styles = css `
     box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
     transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   }
-  .simple-boost-button.next-filled:hover {
+  :host(.next-filled:hover) .simple-boost-button {
     background: rgba(0, 118, 255, 0.9);
     box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
   }
 
-  .simple-boost-button.bootstrap-filled {
+  :host(.bootstrap-filled) .simple-boost-button {
     cursor: pointer;
     outline: 0;
     color: #fff;
@@ -138,18 +139,17 @@ export const styles = css `
     text-align: center;
     border: 1px solid transparent;
     padding: 6px 12px;
-    font-size: 16px;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
-  .simple-boost-button.bootstrap-filled:hover {
+  :host(.bootstrap-filled:hover) .simple-boost-button {
     color: #fff;
     background-color: #0b5ed7;
     border-color: #0a58ca;
   }
 
-  .simple-boost-button.bootstrap {
+  :host(.bootstrap) .simple-boost-button {
     cursor: pointer;
     outline: 0;
     display: inline-block;
@@ -159,20 +159,19 @@ export const styles = css `
     background-color: transparent;
     border: 1px solid transparent;
     padding: 6px 12px;
-    font-size: 1rem;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     color: #0d6efd;
     border-color: #0d6efd;
   }
-  .simple-boost-button.bootstrap:hover {
+  :host(.bootstrap:hover) .simple-boost-button {
     color: #fff;
     background-color: #0d6efd;
     border-color: #0d6efd;
   }
 
-  .simple-boost-button.gumroad {
+  :host(.gumroad) .simple-boost-button {
     outline: 0;
     grid-gap: 8px;
     align-items: center;
@@ -192,15 +191,56 @@ export const styles = css `
     transition: all 0.14s ease-out;
     white-space: nowrap;
   }
-  .simple-boost-button.gumroad:hover {
+  :host(.gumroad:hover) .simple-boost-button {
     box-shadow: 4px 4px 0 #000;
     transform: translate(-4px, -4px);
   }
-  .simple-boost-button.gumroad:focus-visible {
+  :host(.gumroad:focus-visible) .simple-boost-button {
     outline-offset: 1px;
   }
 
-  .simple-boost-button > .simple-boost-icon {
+  :host(.spotify) .simple-boost-button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color, border-color, color, box-shadow,
+      filter;
+    transition-duration: 0.3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 14px 18px;
+    color: #fff;
+    background-color: #15883e;
+  }
+  :host(.spotify:hover) .simple-boost-button {
+    background-color: #1db954;
+  }
+
+  :host(.alby) .simple-boost-button {
+    line-height: 1.75rem;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 500px;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 900;
+    text-align: center;
+    padding: 1rem 2rem 1rem 2rem;
+    color: #000;
+    background-color: rgb(248, 196, 85);
+    font-family: 'Catamaran', sans-serif;
+  }
+
+  :host > .simple-boost-icon {
     vertical-align: middle;
   }
   .simple-boost-icon-spin {
@@ -214,27 +254,6 @@ export const styles = css `
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
-  }
-  .simple-boost-button,
-  .simple-boost-button:active,
-  .simple-boost-button:focus {
-    outline: 0;
-  }
-  .simple-boost-button:not([disabled]):hover {
-    text-decoration: none;
-  }
-  .simple-boost-button:not([disabled]):active {
-    outline: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-  .simple-boost-button.disabled,
-  .simple-boost-button[disabled] {
-    cursor: not-allowed;
-  }
-  .simple-boost-button.disabled > *,
-  .simple-boost-button[disabled] > * {
-    pointer-events: none;
   }
   .inline {
     display: inline;

@@ -26,23 +26,56 @@ title: <simple-boost> ⌲ Home
   </div>
 </section>
 
-## Use your content
-
-`<simple-boost>` supports any button content. Use it as any other HTML button.
+## Simply loadable from the CDN
 
 <section class="columns">
   <div>
 
+`<simple-boost>` is easy to add on any website. The easiest is to load from the CDN:
+
 ```html
-<simple-boost amount="2100" address="hello@getalby.com" theme="gumroad"
-  >Support my work!</simple-boost
->
+<script type="module" src="https://unpkg.com/simple-boost?module"></script>
+<simple-boost
+  amount="0.2"
+  currency="eur"
+  class="spotify"
+  address="hello@getalby.com"
+></simple-boost>
 ```
 
   </div>
   <div>
 
-<simple-boost amount="2100" address="hello@getalby.com" theme="gumroad">Support my work!</simple-boost>
+<simple-boost amount="0.2" currency="eur" class="spotify" address="hello@getalby.com"></simple-boost>
+
+  </div>
+</section>
+
+## Highly customizable to match your text and style
+
+`<simple-boost>` supports any button content and can easily be customized (see themes). You can use it as any other HTML button.
+
+<section class="columns">
+  <div>
+
+```html
+<simple-boost
+  style="border:1px solid red; padding: 5px"
+  class="my-boost"
+  amount="2100"
+  address="hello@getalby.com"
+  >Support my work!</simple-boost</simple-boost>
+```
+
+  </div>
+  <div>
+
+<simple-boost
+    style="border:1px solid red; padding: 5px"
+    class="my-boost"
+    amount="2100"
+    address="hello@getalby.com"
+    >Support my work!</simple-boost>
 
   </div>
 </section>
@@ -51,22 +84,24 @@ title: <simple-boost> ⌲ Home
 
 `<simple-boost>` comes with a list of themes and can be configured to match your style.
 
-Possible theme options: default, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad
+Possible theme options: alby, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad, spotify
+
+If the themes do not fit your style then simply customized it with your own style.
 
 <section class="columns">
   <div>
 
 ```html
-<simple-boost theme="hey" address="hello@getalby.com"></simple-boost>
-<simple-boost theme="bootstrap" address="hello@getalby.com"></simple-boost>
+<simple-boost class="hey" address="hello@getalby.com"></simple-boost>
+<simple-boost class="bootstrap" address="hello@getalby.com"></simple-boost>
 <simple-boost
-  theme="gumroad"
+  class="gumroad"
   currency="usd"
   amount="1"
   address="hello@getalby.com"
 ></simple-boost>
 <simple-boost
-  theme="figma-filled"
+  class="figma-filled"
   address="hello@getalby.com"
   currency="eur"
   amount="1"
@@ -76,10 +111,10 @@ Possible theme options: default, hey, figma, figma-filled, next, next-filled, bo
   </div>
   <div>
 
-<simple-boost theme="hey" address="hello@getalby.com"></simple-boost>
-<simple-boost theme="bootstrap" address="hello@getalby.com"></simple-boost>
-<simple-boost theme="gumroad" currency="USD" amount="1" address="hello@getalby.com"></simple-boost>
-<simple-boost theme="figma-filled" currency="eur" amount="1" address="hello@getalby.com"></simple-boost>
+<simple-boost class="hey" address="hello@getalby.com"></simple-boost>
+<simple-boost class="bootstrap" address="hello@getalby.com"></simple-boost>
+<simple-boost class="gumroad" currency="USD" amount="1" address="hello@getalby.com"></simple-boost>
+<simple-boost class="figma-filled" currency="eur" amount="1" address="hello@getalby.com"></simple-boost>
 
   </div>
 </section>
