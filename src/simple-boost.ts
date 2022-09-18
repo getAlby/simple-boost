@@ -66,6 +66,15 @@ export class SimpleBoost extends LitElement {
 
   jsConfetti = new JSConfetti();
 
+  constructor() {
+    super();
+    // if no class is configured we use `default` for the default styles
+    if (this.classList.length === 0) {
+      this.classList.add('default');
+    }
+    this.addEventListener('click', this.clickHandler);
+  }
+
   get formattedAmount() {
     if (this.currency === 'sats') {
       return `${this.amount} sats`;
@@ -101,6 +110,9 @@ export class SimpleBoost extends LitElement {
 
   private async clickHandler(e: MouseEvent) {
     e.preventDefault();
+    if (this.isLoading) {
+      return;
+    }
     this.isLoading = true;
 
     let amountInSats;
@@ -177,11 +189,8 @@ export class SimpleBoost extends LitElement {
   }
 
   override render() {
-    const classNames = `simple-boost-button ${this.theme} ${
-      this.isLoading && 'simple-boost-button-loading'
-    }`;
     return html`
-      <button class=${classNames} type="button" @click=${this.clickHandler}>
+      <div class="simple-boost-button">
         <div class="inline">
           <slot>Boost ${this.formattedAmount}</slot>
         </div>
@@ -209,7 +218,7 @@ export class SimpleBoost extends LitElement {
               `
             : ''}
         </div>
-      </button>
+      </div>
     `;
   }
 }
