@@ -4,6 +4,7 @@
   "description": "The one-click tipping button for your website",
   "main": "dist/simple-boost.js",
   "module": "dist/simple-boost.js",
+  "types": "dist/simple-boost.d.ts",
   "type": "module",
   "scripts": {
     "build": "tsc",
@@ -42,7 +43,6 @@
   ],
   "author": "Alby",
   "license": "MIT",
-  "types": "simple-boost.d.ts",
   "dependencies": {
     "js-confetti": "^0.10.2",
     "lit": "^2.2.4"
