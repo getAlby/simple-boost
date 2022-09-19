@@ -95,7 +95,7 @@ export class SimpleBoost extends LitElement {
         .then((response) => response.json())
         .then((rate) => {
           const rate_float = rate[this.currency.toUpperCase()].rate_float;
-          return (this.amount / rate_float) * 100000000;
+          return Math.ceil((this.amount / rate_float) * 100000000);
         });
     }
   }
