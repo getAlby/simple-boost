@@ -141,33 +141,3 @@ If the themes do not fit your style then simply customized it with your own styl
 
   </div>
 </section>
-
-## Declarative rendering
-
-<section class="columns">
-  <div>
-
-`<simple-boost>` can be used with declarative rendering libraries like Angular, React, Vue, and lit-html
-
-```js
-import {html, render} from 'lit-html';
-
-const name = 'lit-html';
-
-render(
-  html`
-    <h2>This is a &lt;simple-boost&gt;</h2>
-    <simple-boost .address=${address}></simple-boost>
-  `,
-  document.body
-);
-```
-
-  </div>
-  <div>
-
-<h2>This is a &lt;simple-boost&gt;</h2>
-<simple-boost address="hello@getalby.com"></simple-boost>
-
-  </div>
-</section>
