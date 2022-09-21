@@ -7,7 +7,33 @@ export const linkFallback = (paymentRequest) => {
     link.click();
     document.body.removeChild(link);
 };
-export const requestInvoice = (lnurl, sats) => {
+export const requestInvoice = async (lnurl, sats) => {
+    let response;
+    try {
+        response = await requestInvoiceFromLnurl(lnurl, sats);
+    }
+    catch (e) {
+        console.error(e);
+        response = await requestInvoiceWithProxy(lnurl, sats);
+    }
+    return response;
+};
+export const requestInvoiceWithProxy = (lnurl, sats) => {
+    const url = `https://embed.twentyuno.net/invoice?to=${lnurl}&amount=${sats}&comment=`;
+    return fetch(url)
+        .then((response) => {
+        if (response.ok) {
+            return response.json();
+        }
+        else {
+            throw new Error('Network response was not OK');
+        }
+    })
+        .then((response) => {
+        return { pr: response.payment_request };
+    });
+};
+export const requestInvoiceFromLnurl = (lnurl, sats) => {
     let url = lnurl;
     if (lnurl.match(/@/)) {
         const [user, host] = lnurl.split('@');
