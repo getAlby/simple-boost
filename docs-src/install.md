@@ -15,6 +15,8 @@ The most simple installation is just to load it from the CD:
 
 and then use the `<simple-boost address="..."></simple-boost>` tag as described in the examples.
 
+If you want to load the JS locally you can use the dist file from [GitHub](https://github.com/getAlby/simple-boost/tree/main/dist) or install it via NPM.
+
 ## Local Installation
 
 ```bash
