@@ -7,6 +7,14 @@ title: <simple-boost> ⌲ Install
 
 `<simple-boost>` is distributed on npm, so you can install it locally or use it via npm CDNs like unpkg.com.
 
+The most simple installation is just to load it from the CD:
+
+```html
+<script type="module" src="https://unpkg.com/simple-boost?module"></script>
+```
+
+and then use the `<simple-boost address="..."></simple-boost>` tag as described in the examples.
+
 ## Local Installation
 
 ```bash
