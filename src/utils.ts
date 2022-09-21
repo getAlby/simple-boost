@@ -8,7 +8,39 @@ export const linkFallback = (paymentRequest: string): void => {
   document.body.removeChild(link);
 };
 
-export const requestInvoice = (
+export const requestInvoice = async (
+  lnurl: string,
+  sats: number
+): Promise<{pr: string}> => {
+  let response;
+  try {
+    response = await requestInvoiceFromLnurl(lnurl, sats);
+  } catch (e) {
+    console.error(e);
+    response = await requestInvoiceWithProxy(lnurl, sats);
+  }
+  return response;
+};
+
+export const requestInvoiceWithProxy = (
+  lnurl: string,
+  sats: number
+): Promise<{pr: string}> => {
+  const url = `https://embed.twentyuno.net/invoice?to=${lnurl}&amount=${sats}&comment=`;
+  return fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Network response was not OK');
+      }
+    })
+    .then((response) => {
+      return {pr: response.payment_request};
+    });
+};
+
+export const requestInvoiceFromLnurl = (
   lnurl: string,
   sats: number
 ): Promise<{pr: string}> => {
