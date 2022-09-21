@@ -40,3 +40,7 @@ For this element to work from unpkg.com specifically, you need to include the `?
 ```html
 import {SimpleBoost} from 'https://unpkg.com/simple-boost?module';
 ```
+
+## Code
+
+You find the [source code over at GitHub](https://github.com/getAlby/simple-boost)

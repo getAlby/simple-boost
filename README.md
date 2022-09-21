@@ -4,7 +4,11 @@ A web component button to trigger a WebLN payment request. The easiest and faste
 
 Lightning invoices can either be automatically be generates through a LUNRL-pay Lightning Address or the payment can be sent as a keysend payment.
 
-## Setup
+## Demo and Documentation
+
+Have a look at the [docs](https://getalby.github.io/simple-boost/) and [examples](https://getalby.github.io/simple-boost/examples/).
+
+## Development setup
 
 Install dependencies:
 
