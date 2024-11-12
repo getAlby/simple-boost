@@ -8,4 +8,3 @@ export declare const requestInvoiceWithProxy: (lnurl: string, sats: number) => P
 export declare const requestInvoiceFromLnurl: (lnurl: string, sats: number) => Promise<{
     pr: string;
 }>;
-//# sourceMappingURL=utils.d.ts.map

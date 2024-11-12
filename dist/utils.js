@@ -62,4 +62,3 @@ export const requestInvoiceFromLnurl = (lnurl, sats) => {
         });
     });
 };
-//# sourceMappingURL=utils.js.map
