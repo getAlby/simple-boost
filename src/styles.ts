@@ -34,6 +34,24 @@ export const styles = css`
     color: #fff;
     background-color: #616467;
   }
+  :host(.default) .simple-boost-amount-input {
+    text-align:center;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
+  }
+  :host(.default:hover) .simple-boost-amount-input {
+    color: #fff;
+    background-color: #616467;
+    border-bottom: 2px solid #fff;
+  }
+
 
   :host(.hey) .simple-boost-button {
     display: inline-block;
@@ -55,6 +73,18 @@ export const styles = css`
     box-shadow: 0 0 0 0.15rem #5ceace;
   }
 
+  :host(.hey) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
+  }
+
+
   :host(.figma) .simple-boost-button {
     display: inline-block;
     outline: 0;
@@ -72,6 +102,17 @@ export const styles = css`
   :host(.figma:hover) .simple-boost-button {
     transform: translateY(-2px);
   }
+  :host(.figma) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
+  }
+
 
   :host(.figma-filled) .simple-boost-button {
     display: inline-block;
@@ -88,6 +129,16 @@ export const styles = css`
   }
   :host(.figma-filled:hover) .simple-boost-button {
     transform: translateY(-2px);
+  }
+  :host(.figma-filled) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
   }
 
   :host(.next) .simple-boost-button {
@@ -108,6 +159,16 @@ export const styles = css`
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
   }
+  :host(.next) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
+  }
 
   :host(.next-filled) .simple-boost-button {
     display: inline-block;
@@ -126,6 +187,16 @@ export const styles = css`
   :host(.next-filled:hover) .simple-boost-button {
     background: rgba(0, 118, 255, 0.9);
     box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
+  }
+  :host(.next-filled) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
   }
 
   :host(.bootstrap-filled) .simple-boost-button {
@@ -149,6 +220,16 @@ export const styles = css`
     background-color: #0b5ed7;
     border-color: #0a58ca;
   }
+  :host(.bootstram-filled) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
+  }
 
   :host(.bootstrap) .simple-boost-button {
     cursor: pointer;
@@ -170,6 +251,16 @@ export const styles = css`
     color: #fff;
     background-color: #0d6efd;
     border-color: #0d6efd;
+  }
+  :host(.bootrstap) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
   }
 
   :host(.gumroad) .simple-boost-button {
@@ -199,6 +290,17 @@ export const styles = css`
   :host(.gumroad:focus-visible) .simple-boost-button {
     outline-offset: 1px;
   }
+  :host(.gumroad) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
+  }
+
 
   :host(.spotify) .simple-boost-button {
     display: inline-block;
@@ -222,6 +324,16 @@ export const styles = css`
   :host(.spotify:hover) .simple-boost-button {
     background-color: #1db954;
   }
+  :host(.spotify) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
+  }
 
   :host(.alby) .simple-boost-button {
     line-height: 1.75rem;
@@ -239,6 +351,16 @@ export const styles = css`
     color: #000;
     background-color: rgb(248, 196, 85);
     font-family: 'Catamaran', sans-serif;
+  }
+  :host(.alby) .simple-boost-amount-input {
+    text-align:center;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: none;
+    color: #616467;
+    background: transparent;
+    border-bottom: 2px solid #616467;
   }
 
   :host > .simple-boost-icon {

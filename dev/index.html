@@ -7,6 +7,7 @@
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
     <script type="module" src="../dist/simple-boost.js"></script>
+    <script type="module" src="../dist/simple-boost-amount.js"></script>
     <style>
       body {
         font-family: verdana;
@@ -24,16 +25,7 @@
     </style>
   </head>
   <body>
-    <simple-boost
-      method="keysend"
-      address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-      custom-key="696969"
-      custom-value="3wQCCrfOAMYNzOh1sL05"
-      no-confetti="1"
-      class="bootstrap-filled"
-    >
-      Boost YAy
-    </simple-boost>
+    <h2>Simple Boost:</h2>
 
     <simple-boost amount="10" address="secondl1ght@coinos.io" class="my-boost"
       >coinos</simple-boost
@@ -47,7 +39,7 @@
       class="figma"
       >walletofsatoshi</simple-boost
     >
-    <simple-boost amount="10" address="bumi@getalby.com" class="figma-filled"
+    <simple-boost amount="1" nwc="bm9zdHIrd2FsbGV0Y29ubmVjdDovLzI3OTZmZmMzZDg5OTdmMmJmMTdmNjI5NjJmYTUzNmI0N2NiOGQ4ZDk3OTYxZjNmMDk3NGMwNzBhYTM0ZDllMjc/cmVsYXk9d3NzOi8vcmVsYXkuYWxieWxhYnMuY29tJnNlY3JldD1kMWRjZWY0NzQ0Zjc5YzQzOTU2OTliNmEwNzk1M2Q3Zjk5OTgwODYyMGIzN2JiZjczZmU3MmVmZjA3MzBlNTE1" class="figma-filled"
       >alby</simple-boost
     >
     <simple-boost amount="10" address="bumi@getalby.com" class="next"
@@ -86,5 +78,16 @@
       address="bumi@getalby.com"
       class="bootstrap"
     ></simple-boost>
+
+
+    <h2>With amount field:</h2>
+    <simple-boost-amount  address="secondl1ght@coinos.io">amount</simple-boost-amount>
+    <simple-boost-amount address="secondl1ght@coinos.io" amount="1" currency="EUR" class="gumroad"></simple-boost-amount>
+    <simple-boost-amount address="secondl1ght@coinos.io" amount="1" currency="EUR" class="spotify"></simple-boost-amount>
+    <simple-boost-amount address="secondl1ght@coinos.io" amount="1" currency="EUR" class="alby"></simple-boost-amount>
+    <simple-boost-amount address="secondl1ght@coinos.io" amount="1" currency="EUR" class="next"></simple-boost-amount>
+    <simple-boost-amount address="secondl1ght@coinos.io" amount="1" currency="EUR" class="next-filled"></simple-boost-amount>
+
+
   </body>
 </html>
