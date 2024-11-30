@@ -2,8 +2,8 @@ import {LitElement, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import JSConfetti from 'js-confetti';
 import {styles} from './styles.js';
-import { LightningAddress, fiat, Invoice } from "@getalby/lightning-tools";
-import { webln } from "@getalby/sdk";
+import {LightningAddress, fiat, Invoice} from '@getalby/lightning-tools';
+import {webln} from '@getalby/sdk';
 import {launchPaymentModal} from '@getalby/bitcoin-connect';
 
 /**
@@ -20,39 +20,39 @@ export class SimpleBoost extends LitElement {
   /**
    * The recipient. Either a LNURL-pay/Lightning Address or a node pubkey
    */
-  @property({ type: String })
+  @property({type: String})
   address = '';
   /**
    * The recipient NWC.
    */
-  @property({ type: String })
+  @property({type: String})
   nwc = '';
   /**
    * The payment amount. Either denominated in sats (default) or in a defined fiat currency.
    */
-  @property({ type: Number })
+  @property({type: Number})
   amount = 100;
   /**
    * The payment description.
    */
-  @property({ type: String })
-  memo = "";
+  @property({type: String})
+  memo = '';
   /**
    * Currency of the payment. Defaults to sats. If a fiat currency (e.g. USD, EUR, etc.) is used the amount will be converted to sats on payment
    */
-  @property({ type: String })
+  @property({type: String})
   currency = 'sats';
   /**
    * Disable the confetti after a payment is sent
    */
-  @property({ type: Boolean, attribute: 'no-confetti' })
+  @property({type: Boolean, attribute: 'no-confetti'})
   noConfetti = false;
   /**
    * The button theme. Supported options: alby, default, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad, spotify
    */
-  @property({ type: String })
+  @property({type: String})
   theme = 'default';
-  @property({ type: Boolean, attribute: false })
+  @property({type: Boolean, attribute: false})
   isLoading = false;
 
   jsConfetti = new JSConfetti();
@@ -81,8 +81,12 @@ export class SimpleBoost extends LitElement {
   }
 
   private get nwcClient() {
-    if (!this.nwc) { return null; }
-    if (this._nwcClient) { return this._nwcClient }
+    if (!this.nwc) {
+      return null;
+    }
+    if (this._nwcClient) {
+      return this._nwcClient;
+    }
 
     const nwcUrl = atob(this.nwc);
     this._nwcClient = new webln.NostrWebLNProvider({
@@ -95,30 +99,38 @@ export class SimpleBoost extends LitElement {
     if (this.currency === 'sats') {
       return Promise.resolve(this.amount);
     } else {
-      return fiat.getSatoshiValue({ currency: this.currency, amount: this.amount });
+      return fiat.getSatoshiValue({
+        currency: this.currency,
+        amount: this.amount,
+      });
     }
   }
 
-  private async requestInvoice(args: { amountInSats: number, memo: string }) {
+  private async requestInvoice(args: {amountInSats: number; memo: string}) {
     if (this.nwcClient) {
       await this.nwcClient.enable();
       const response = await this.nwcClient.makeInvoice({
         amount: args.amountInSats,
-        defaultMemo: args.memo
+        defaultMemo: args.memo,
       });
-      return new Invoice({ pr: response.paymentRequest });
+      return new Invoice({pr: response.paymentRequest});
     } else if (this.address) {
       const ln = new LightningAddress(this.address);
       await ln.fetch();
-      return await ln.requestInvoice({ satoshi: args.amountInSats, comment: args.memo });
+      return await ln.requestInvoice({
+        satoshi: args.amountInSats,
+        comment: args.memo,
+      });
     } else {
-      throw new Error("missing method");
+      throw new Error('missing method');
     }
   }
 
-  private onPaid(args: { paymentRequest: string, preimage: string }) {
+  private onPaid(args: {paymentRequest: string; preimage: string}) {
     this.isLoading = false;
-    if (!args.preimage) { return; }
+    if (!args.preimage) {
+      return;
+    }
     if (!this.noConfetti) {
       this.jsConfetti.addConfetti();
     }
@@ -132,13 +144,18 @@ export class SimpleBoost extends LitElement {
     );
   }
 
-  private checkPayment(invoice: Invoice, setPaid: (args: { preimage: string|null|undefined } ) => void) {
+  private checkPayment(
+    invoice: Invoice,
+    setPaid: (args: {preimage: string | null | undefined}) => void
+  ) {
     return setInterval(async () => {
       try {
         if (this.nwcClient) {
-          const lookupResponse = await this.nwcClient.lookupInvoice({ paymentHash: invoice.paymentHash });
+          const lookupResponse = await this.nwcClient.lookupInvoice({
+            paymentHash: invoice.paymentHash,
+          });
 
-          if(lookupResponse.paid) {
+          if (lookupResponse.paid) {
             setPaid({
               preimage: lookupResponse.preimage,
             });
@@ -151,40 +168,48 @@ export class SimpleBoost extends LitElement {
             });
           }
         }
-      } catch(e) {
-        console.error("Failed to verify payment", e);
+      } catch (e) {
+        console.error('Failed to verify payment', e);
       }
     }, 1000);
   }
-  private async requestPayment(args: { amountInSats: number, memo: string }) {
+  private async requestPayment(args: {amountInSats: number; memo: string}) {
     const invoice = await this.requestInvoice(args);
 
     if (window.webln) {
       try {
         await window.webln.enable();
-        const paymentResponse = await window.webln.sendPayment(invoice.paymentRequest);
-        this.onPaid({ paymentRequest: invoice.paymentRequest, preimage: paymentResponse.preimage as string });
+        const paymentResponse = await window.webln.sendPayment(
+          invoice.paymentRequest
+        );
+        this.onPaid({
+          paymentRequest: invoice.paymentRequest,
+          preimage: paymentResponse.preimage as string,
+        });
       } catch (error) {
         console.error(error);
         this.isLoading = false;
       }
     } else {
-      const { setPaid } = launchPaymentModal({
+      const {setPaid} = launchPaymentModal({
         invoice: invoice.paymentRequest,
-        onPaid: (args: { preimage: string }) => {
+        onPaid: (args: {preimage: string}) => {
           clearInterval(checkPaymentInterval);
-          this.onPaid({paymentRequest: invoice.paymentRequest, preimage: args.preimage })
+          this.onPaid({
+            paymentRequest: invoice.paymentRequest,
+            preimage: args.preimage,
+          });
         },
         onCancelled: () => {
           clearInterval(checkPaymentInterval);
           this.isLoading = false;
-        }
+        },
       });
       const checkPaymentInterval = this.checkPayment(invoice, (args) => {
         if (args.preimage) {
-          setPaid({ preimage: args.preimage })
+          setPaid({preimage: args.preimage});
         }
-      })
+      });
     }
   }
 
@@ -207,7 +232,7 @@ export class SimpleBoost extends LitElement {
       return;
     }
 
-    this.requestPayment({ amountInSats, memo: this.memo })
+    this.requestPayment({amountInSats, memo: this.memo});
   }
 
   override render() {

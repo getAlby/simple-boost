@@ -1,6 +1,6 @@
-import { html} from 'lit';
-import { customElement }  from 'lit/decorators.js';
-import { SimpleBoost } from './simple-boost';
+import {html} from 'lit';
+import {customElement} from 'lit/decorators.js';
+import {SimpleBoost} from './simple-boost';
 /**
  * The simple-boost- tipping component with amount input
  *
@@ -10,14 +10,12 @@ import { SimpleBoost } from './simple-boost';
  */
 @customElement('simple-boost-amount')
 export class SimpleBoostAmount extends SimpleBoost {
-
   _inputChanged(e: Event) {
     const value = (e.target as HTMLInputElement).value;
     this.amount = parseFloat(value) || this.amount;
   }
 
   handleKeyUp(event: KeyboardEvent) {
-    console.log(event.key)
     if (event.key === 'Enter') {
       this.handleSubmit();
     }
@@ -26,7 +24,14 @@ export class SimpleBoostAmount extends SimpleBoost {
   override render() {
     return html`
       <div class="simple-boost-button">
-        <input type="text" class="simple-boost-amount-input" size="3" value="${this.amount}" @keyup=${this.handleKeyUp} @input=${this._inputChanged} />
+        <input
+          type="text"
+          class="simple-boost-amount-input"
+          size="3"
+          value="${this.amount}"
+          @keyup=${this.handleKeyUp}
+          @input=${this._inputChanged}
+        />
         <div class="inline" @click=${this.clickHandler}>
           <slot>${this.currency} Boost</slot>
         </div>
