@@ -6,12 +6,6 @@ import { LightningAddress, fiat, Invoice } from "@getalby/lightning-tools";
 import { webln } from "@getalby/sdk";
 import {launchPaymentModal} from '@getalby/bitcoin-connect';
 
-declare global {
-  interface Window {
-    webln: any;
-  }
-}
-
 /**
  * The simple-boost tipping component
  *
@@ -105,16 +99,12 @@ export class SimpleBoost extends LitElement {
     }
   }
 
-  private isWeblnSupported() {
-    return !!window.webln;
-  }
-
   private async requestInvoice(args: { amountInSats: number, memo: string }) {
     if (this.nwcClient) {
       await this.nwcClient.enable();
       const response = await this.nwcClient.makeInvoice({
         amount: args.amountInSats,
-        memo: args.memo
+        defaultMemo: args.memo
       });
       return new Invoice({ pr: response.paymentRequest });
     } else if (this.address) {
@@ -142,7 +132,7 @@ export class SimpleBoost extends LitElement {
     );
   }
 
-  private checkPayment(invoice: Invoice, setPaid: (arge: { preimage: string|null } ) => void) {
+  private checkPayment(invoice: Invoice, setPaid: (args: { preimage: string|null|undefined } ) => void) {
     return setInterval(async () => {
       try {
         if (this.nwcClient) {
@@ -169,7 +159,7 @@ export class SimpleBoost extends LitElement {
   private async requestPayment(args: { amountInSats: number, memo: string }) {
     const invoice = await this.requestInvoice(args);
 
-    if (this.isWeblnSupported()) {
+    if (window.webln) {
       try {
         await window.webln.enable();
         const paymentResponse = await window.webln.sendPayment(invoice.paymentRequest);
@@ -190,7 +180,11 @@ export class SimpleBoost extends LitElement {
           this.isLoading = false;
         }
       });
-      const checkPaymentInterval = this.checkPayment(invoice, setPaid)
+      const checkPaymentInterval = this.checkPayment(invoice, (args) => {
+        if (args.preimage) {
+          setPaid({ preimage: args.preimage })
+        }
+      })
     }
   }
 

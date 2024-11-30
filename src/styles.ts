@@ -7,9 +7,6 @@ export const styles = css`
     outline: none;
   }
 
-  ::slotted(*) {
-  }
-
   :host(.default) .simple-boost-button {
     display: inline-block;
     outline: none;
