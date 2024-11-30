@@ -7,6 +7,7 @@
   "types": "dist/simple-boost.d.ts",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rimraf simple-boost.{d.ts,d.ts.map,js,js.map} test/simple-boost.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
@@ -44,7 +45,9 @@
   "author": "Alby",
   "license": "MIT",
   "dependencies": {
-    "@getalby/bitcoin-connect": "^3.6.2",
+    "@getalby/bitcoin-connect": "^3.6.3",
+    "@getalby/lightning-tools": "^5.1.0",
+    "@getalby/sdk": "^3.7.1",
     "js-confetti": "^0.10.2",
     "lit": "^3.2.1"
   },
@@ -69,7 +72,8 @@
     "rollup": "^2.73.0",
     "rollup-plugin-summary": "^1.4.3",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "~4.7.4"
+    "typescript": "~4.7.4",
+    "vite": "^6.0.1"
   },
   "customElements": "custom-elements.json"
 }

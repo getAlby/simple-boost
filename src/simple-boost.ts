@@ -2,7 +2,9 @@ import {LitElement, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import JSConfetti from 'js-confetti';
 import {styles} from './styles.js';
-import {linkFallback, requestInvoice} from './utils.js';
+import { LightningAddress, fiat, Invoice } from "@getalby/lightning-tools";
+import { webln } from "@getalby/sdk";
+import {launchPaymentModal} from '@getalby/bitcoin-connect';
 
 declare global {
   interface Window {
@@ -24,47 +26,43 @@ export class SimpleBoost extends LitElement {
   /**
    * The recipient. Either a LNURL-pay/Lightning Address or a node pubkey
    */
-  @property({type: String})
+  @property({ type: String })
   address = '';
+  /**
+   * The recipient NWC.
+   */
+  @property({ type: String })
+  nwc = '';
   /**
    * The payment amount. Either denominated in sats (default) or in a defined fiat currency.
    */
-  @property({type: Number})
+  @property({ type: Number })
   amount = 100;
+  /**
+   * The payment description.
+   */
+  @property({ type: String })
+  memo = "";
   /**
    * Currency of the payment. Defaults to sats. If a fiat currency (e.g. USD, EUR, etc.) is used the amount will be converted to sats on payment
    */
-  @property({type: String})
+  @property({ type: String })
   currency = 'sats';
-  /**
-   * The lightning payment method to use (lnurl or keysend)
-   */
-  @property({type: String})
-  method = 'lnurl';
-  /**
-   * The name of a custom record key to send along with the keysend payment. Only used for keysend payments
-   */
-  @property({type: String, attribute: 'custom-key'})
-  customKey = null;
-  /**
-   * A custom value to pass along with the payment. This is considered the value that belongs to the customKey. Only used for keysend payments
-   */
-  @property({type: String, attribute: 'custom-value'})
-  customValue = null;
   /**
    * Disable the confetti after a payment is sent
    */
-  @property({type: Boolean, attribute: 'no-confetti'})
+  @property({ type: Boolean, attribute: 'no-confetti' })
   noConfetti = false;
   /**
    * The button theme. Supported options: alby, default, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad, spotify
    */
-  @property({type: String})
+  @property({ type: String })
   theme = 'default';
-  @property({type: Boolean, attribute: false})
+  @property({ type: Boolean, attribute: false })
   isLoading = false;
 
   jsConfetti = new JSConfetti();
+  _nwcClient: webln.NostrWebLNProvider | null = null;
 
   constructor() {
     super();
@@ -72,7 +70,8 @@ export class SimpleBoost extends LitElement {
     if (this.classList.length === 0) {
       this.classList.add('default');
     }
-    this.addEventListener('click', this.clickHandler);
+
+    //this.addEventListener('click', this.clickHandler);
   }
 
   get formattedAmount() {
@@ -87,16 +86,22 @@ export class SimpleBoost extends LitElement {
     return formatter.format(this.amount);
   }
 
+  private get nwcClient() {
+    if (!this.nwc) { return null; }
+    if (this._nwcClient) { return this._nwcClient }
+
+    const nwcUrl = atob(this.nwc);
+    this._nwcClient = new webln.NostrWebLNProvider({
+      nostrWalletConnectUrl: nwcUrl,
+    });
+    return this._nwcClient;
+  }
+
   async getAmountInSats() {
     if (this.currency === 'sats') {
       return Promise.resolve(this.amount);
     } else {
-      return fetch(`https://getalby.com/api/rates/${this.currency}`)
-        .then((response) => response.json())
-        .then((rate) => {
-          const rate_float = rate[this.currency.toUpperCase()].rate_float;
-          return Math.ceil((this.amount / rate_float) * 100000000);
-        });
+      return fiat.getSatoshiValue({ currency: this.currency, amount: this.amount });
     }
   }
 
@@ -104,12 +109,96 @@ export class SimpleBoost extends LitElement {
     return !!window.webln;
   }
 
-  private isKeysendSupported() {
-    return this.isWeblnSupported() && !!window.webln.keysend;
+  private async requestInvoice(args: { amountInSats: number, memo: string }) {
+    if (this.nwcClient) {
+      await this.nwcClient.enable();
+      const response = await this.nwcClient.makeInvoice({
+        amount: args.amountInSats,
+        memo: args.memo
+      });
+      return new Invoice({ pr: response.paymentRequest });
+    } else if (this.address) {
+      const ln = new LightningAddress(this.address);
+      await ln.fetch();
+      return await ln.requestInvoice({ satoshi: args.amountInSats, comment: args.memo });
+    } else {
+      throw new Error("missing method");
+    }
   }
 
-  private async clickHandler(e: MouseEvent) {
+  private onPaid(args: { paymentRequest: string, preimage: string }) {
+    this.isLoading = false;
+    if (!args.preimage) { return; }
+    if (!this.noConfetti) {
+      this.jsConfetti.addConfetti();
+    }
+    this.dispatchEvent(
+      new CustomEvent('success', {
+        detail: {
+          pr: args.paymentRequest,
+          preimage: args.preimage,
+        },
+      })
+    );
+  }
+
+  private checkPayment(invoice: Invoice, setPaid: (arge: { preimage: string|null } ) => void) {
+    return setInterval(async () => {
+      try {
+        if (this.nwcClient) {
+          const lookupResponse = await this.nwcClient.lookupInvoice({ paymentHash: invoice.paymentHash });
+
+          if(lookupResponse.paid) {
+            setPaid({
+              preimage: lookupResponse.preimage,
+            });
+          }
+        } else {
+          const paid = await invoice.isPaid();
+          if (paid) {
+            setPaid({
+              preimage: invoice.preimage,
+            });
+          }
+        }
+      } catch(e) {
+        console.error("Failed to verify payment", e);
+      }
+    }, 1000);
+  }
+  private async requestPayment(args: { amountInSats: number, memo: string }) {
+    const invoice = await this.requestInvoice(args);
+
+    if (this.isWeblnSupported()) {
+      try {
+        await window.webln.enable();
+        const paymentResponse = await window.webln.sendPayment(invoice.paymentRequest);
+        this.onPaid({ paymentRequest: invoice.paymentRequest, preimage: paymentResponse.preimage as string });
+      } catch (error) {
+        console.error(error);
+        this.isLoading = false;
+      }
+    } else {
+      const { setPaid } = launchPaymentModal({
+        invoice: invoice.paymentRequest,
+        onPaid: (args: { preimage: string }) => {
+          clearInterval(checkPaymentInterval);
+          this.onPaid({paymentRequest: invoice.paymentRequest, preimage: args.preimage })
+        },
+        onCancelled: () => {
+          clearInterval(checkPaymentInterval);
+          this.isLoading = false;
+        }
+      });
+      const checkPaymentInterval = this.checkPayment(invoice, setPaid)
+    }
+  }
+
+  clickHandler(e: MouseEvent) {
     e.preventDefault();
+    this.handleSubmit();
+  }
+  async handleSubmit() {
     if (this.isLoading) {
       return;
     }
@@ -123,74 +212,13 @@ export class SimpleBoost extends LitElement {
       alert(`Could not fetch invoice`);
       return;
     }
-    if (this.method === 'lnurl') {
-      const callbackResponse = await requestInvoice(this.address, amountInSats);
-      const pr = callbackResponse.pr;
-      if (this.isWeblnSupported()) {
-        try {
-          await window.webln.enable();
-          let paymentResponse = await window.webln.sendPayment(pr);
-          if (paymentResponse.preimage) {
-            if (!this.noConfetti) {
-              this.jsConfetti.addConfetti();
-            }
-            this.dispatchEvent(
-              new CustomEvent('success', {
-                detail: {
-                  pr: callbackResponse.pr,
-                  preimage: paymentResponse.preimage,
-                },
-              })
-            );
-          }
-        } catch (error) {
-          this.isLoading = false;
-        }
-      } else {
-        linkFallback(pr);
-      }
-    } else if (this.method === 'keysend') {
-      if (this.isKeysendSupported()) {
-        let customRecords = {};
-        if (this.customKey && this.customValue) {
-          customRecords[this.customKey] = this.customValue;
-        }
-        try {
-          let keysendResponse = await window.webln.keysend({
-            destination: this.address,
-            amount: amountInSats,
-            customRecords: customRecords,
-          });
-          if (keysendResponse.preimage) {
-            if (!this.noConfetti) {
-              this.jsConfetti.addConfetti();
-            }
-            this.dispatchEvent(
-              new CustomEvent('success', {
-                detail: {
-                  preimage: keysendResponse.preimage,
-                },
-              })
-            );
-          }
-        } catch (error) {
-          // something failed
-          console.error(error);
-        }
-      } else {
-        alert(
-          'A Lightning wallet with WebLN support is required. Please install Alby (https://getalby.com)'
-        );
-      }
-    } else {
-      alert('Invalid method');
-    }
-    this.isLoading = false;
+
+    this.requestPayment({ amountInSats, memo: this.memo })
   }
 
   override render() {
     return html`
-      <div class="simple-boost-button">
+      <div class="simple-boost-button" @click="${this.clickHandler}">
         <div class="inline">
           <slot>Boost ${this.formattedAmount}</slot>
         </div>
