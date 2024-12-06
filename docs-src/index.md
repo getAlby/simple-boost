@@ -51,6 +51,30 @@ title: <simple-boost> ⌲ Home
   </div>
 </section>
 
+## Works with NWC or a lightning address
+
+<section class="columns">
+  <div>
+
+`<simple-boost>` can be used directly with any NWC wallet or a lightning address
+
+```html
+<simple-boost
+  address="hello@getalby.com"
+></simple-boost>
+
+<simple-boost
+  nwc="NWC secret with ONLY make invoice and check invoice permission"
+></simple-boost>
+```
+
+  </div>
+  <div>
+
+  </div>
+</section>
+
+
 ## Highly customizable to match your text and style
 
 `<simple-boost>` supports any button content and can easily be customized (see themes). You can use it as any other HTML button.
