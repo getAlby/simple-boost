@@ -88,9 +88,8 @@ export class SimpleBoost extends LitElement {
       return this._nwcClient;
     }
 
-    const nwcUrl = atob(this.nwc);
     this._nwcClient = new webln.NostrWebLNProvider({
-      nostrWalletConnectUrl: nwcUrl,
+      nostrWalletConnectUrl: this.nwc
     });
     return this._nwcClient;
   }
