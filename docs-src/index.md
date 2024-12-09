@@ -158,7 +158,7 @@ If the themes do not fit your style then simply customized it with your own styl
   </div>
   <div>
 
-<simple-boost-amount currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost-amount>
+<simple-boost currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost>
 
   </div>
 </section>
