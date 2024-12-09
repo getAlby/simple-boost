@@ -2,9 +2,5 @@
 /lib/
 /test/
 custom-elements.json
-# top level source
-simple-boost.js
-simple-boost.js.map
-simple-boost.d.ts
-simple-boost.d.ts.map
+dist
 # only generated for size check
