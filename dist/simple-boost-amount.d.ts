@@ -9,7 +9,7 @@ import { SimpleBoost } from './simple-boost';
 export declare class SimpleBoostAmount extends SimpleBoost {
     _inputChanged(e: Event): void;
     handleKeyUp(event: KeyboardEvent): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 declare global {
     interface HTMLElementTagNameMap {
