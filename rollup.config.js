@@ -11,7 +11,7 @@ import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 
 export default {
-  input: 'dist/simple-boost.js',
+  input: 'dist/index.js',
   output: {
     file: 'dist/simple-boost.bundled.js',
     format: 'esm',

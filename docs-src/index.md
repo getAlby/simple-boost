@@ -143,25 +143,22 @@ If the themes do not fit your style then simply customized it with your own styl
   </div>
 </section>
 
-## Configure with attributes
+
+## Specify amounts in satoshi or fiat currency
 
 <section class="columns">
   <div>
 
-`<simple-boost>` can be configured with attributes in plain HTML. See API for details.
+`<simple-boost>` supports any currency by defining the currency and the amount attribute.
 
 ```html
-<simple-boost
-  address="your-node-key"
-  custom-key="..."
-  custom-value="..."
-></simple-boost>
+<simple-boost-amount currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost-amount>
 ```
 
   </div>
   <div>
 
-<simple-boost method="keysend" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" custom-key="696969" custom-value="3wQCCrfOAMYNzOh1sL05">Supports keysend</simple-boost>
+<simple-boost-amount currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost-amount>
 
   </div>
 </section>

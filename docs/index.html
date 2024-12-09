@@ -90,14 +90,14 @@
 <simple-boost class="figma-filled" currency="eur" amount="1" address="hello@getalby.com"></simple-boost></p>
   </div>
 </section>
-<h2>Configure with attributes</h2>
+<h2>Specify amounts in satoshi or fiat currency</h2>
 <section class="columns">
   <div>
-<p><code>&lt;simple-boost&gt;</code> can be configured with attributes in plain HTML. See API for details.</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>your-node-key<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><br>  <span class="token attr-name">custom-value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+<p><code>&lt;simple-boost&gt;</code> supports any currency by defining the currency and the amount attribute.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost-amount</span> <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eur<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Pay 1 EUR<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost-amount</span><span class="token punctuation">></span></span></code></pre>
   </div>
   <div>
-<p><simple-boost method="keysend" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" custom-key="696969" custom-value="3wQCCrfOAMYNzOh1sL05">Supports keysend</simple-boost></p>
+<p><simple-boost-amount currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost-amount></p>
   </div>
 </section>
 

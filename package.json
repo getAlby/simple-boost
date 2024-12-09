@@ -2,9 +2,9 @@
   "name": "simple-boost",
   "version": "1.2.0",
   "description": "The one-click tipping button for your website",
-  "main": "dist/simple-boost.js",
-  "module": "dist/simple-boost.js",
-  "types": "dist/simple-boost.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "vite",
