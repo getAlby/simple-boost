@@ -8,12 +8,14 @@ import summary from 'rollup-plugin-summary';
 import {terser} from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
   input: 'dist/simple-boost.js',
   output: {
     file: 'dist/simple-boost.bundled.js',
     format: 'esm',
+    inlineDynamicImports: true,
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -21,6 +23,7 @@ export default {
     }
   },
   plugins: [
+    commonjs(),
     replace({'Reflect.decorate': 'undefined'}),
     resolve(),
     terser({
