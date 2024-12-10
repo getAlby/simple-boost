@@ -34,7 +34,7 @@ title: <simple-boost> ⌲ Home
 `<simple-boost>` is easy to add on any website. The easiest is to load from the CDN:
 
 ```html
-<script type="module" src="https://unpkg.com/simple-boost?module"></script>
+<script type="module" src="https://esm.sh/simple-boost@latest"></script>
 <simple-boost
   amount="0.2"
   currency="eur"
