@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
-import {SimpleBoost} from './simple-boost';
+import {SimpleBoost} from './index';
 /**
  * The simple-boost- tipping component with amount input
  *
