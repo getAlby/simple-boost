@@ -8,7 +8,6 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rimraf simple-boost.{d.ts,d.ts.map,js,js.map} test/simple-boost.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
@@ -25,8 +24,8 @@
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
-    "serve": "wds --watch",
-    "serve:prod": "MODE=prod npm run serve",
+    "serve": "vite",
+    "serve:prod": "vite preview --port 5000",
     "test": "npm run test:dev && npm run test:prod",
     "test:dev": "wtr",
     "test:watch": "wtr --watch",
