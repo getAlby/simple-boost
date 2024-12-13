@@ -16,6 +16,6 @@ Use a NWC wallet set the NWC connection secret in the `nwc` attribute.
 
 ```html
 <simple-boost
-  address="nostr+walletconnect://...."
+  nwc="nostr+walletconnect://...."
 ></simple-boost>
 ```
