@@ -1,14 +1,14 @@
 {
   "name": "simple-boost",
-  "version": "1.2.0",
+  "version": "2.0.2",
   "description": "The one-click tipping button for your website",
-  "source": "src/index.ts",
+  "source": "src/simple-boost.ts",
   "exports": {
     "require": "./dist/simple-boost.cjs",
     "default": "./dist/simple-boost.js"
   },
   "main": "./dist/simple-boost.cjs",
-  "module": "./dist/simple-boost.module.js",
+  "module": "./dist/simple-boost.js",
   "unpkg": "./dist/simple-boost.umd.js",
   "types": "dist/simple-boost.d.ts",
   "type": "module",

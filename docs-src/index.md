@@ -34,7 +34,7 @@ title: <simple-boost> ⌲ Home
 `<simple-boost>` is easy to add on any website. The easiest is to load from the CDN:
 
 ```html
-<script type="module" src="https://unpkg.com/simple-boost?module"></script>
+<script type="module" src="https://esm.sh/simple-boost@latest"></script>
 <simple-boost
   amount="0.2"
   currency="eur"
@@ -50,6 +50,30 @@ title: <simple-boost> ⌲ Home
 
   </div>
 </section>
+
+## Works with NWC or a lightning address
+
+<section class="columns">
+  <div>
+
+`<simple-boost>` can be used directly with any NWC wallet or a lightning address
+
+```html
+<simple-boost
+  address="hello@getalby.com"
+></simple-boost>
+
+<simple-boost
+  nwc="NWC secret with ONLY make invoice and check invoice permission"
+></simple-boost>
+```
+
+  </div>
+  <div>
+
+  </div>
+</section>
+
 
 ## Highly customizable to match your text and style
 
@@ -119,25 +143,22 @@ If the themes do not fit your style then simply customized it with your own styl
   </div>
 </section>
 
-## Configure with attributes
+
+## Specify amounts in satoshi or fiat currency
 
 <section class="columns">
   <div>
 
-`<simple-boost>` can be configured with attributes in plain HTML. See API for details.
+`<simple-boost>` supports any currency by defining the currency and the amount attribute.
 
 ```html
-<simple-boost
-  address="your-node-key"
-  custom-key="..."
-  custom-value="..."
-></simple-boost>
+<simple-boost-amount currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost-amount>
 ```
 
   </div>
   <div>
 
-<simple-boost method="keysend" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" custom-key="696969" custom-value="3wQCCrfOAMYNzOh1sL05">Supports keysend</simple-boost>
+<simple-boost currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost>
 
   </div>
 </section>
