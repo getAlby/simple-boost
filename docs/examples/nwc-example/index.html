@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NWC Permission Test</title>
+ 
+    <script type="module" src="../../simple-boost.bundled.js"></script>
+ 
+</head>
+<body>
+  <h1>Testing NWC Permissions</h1>
+  
+  <simple-boost 
+  nwc="nostr+walletconnect://your_secret_here?relay=wss://relay.getalby.com/v1" 
+  amount="100"
+  memo="Testing NWC permissions">
+  </simple-boost>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Testing NWC permissions...');
+    });
+  </script>
+</body>
+</html>
