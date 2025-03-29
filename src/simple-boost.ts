@@ -65,7 +65,12 @@ export class SimpleBoost extends LitElement {
       this.classList.add('default');
     }
 
-    //this.addEventListener('click', this.clickHandler);
+    // Check NWC permissions when the component is created
+    this.addEventListener('firstUpdated', () => {
+      if (this.nwc) {
+        this.checkNwcPermissions();
+      }
+    });
   }
 
   get formattedAmount() {
@@ -94,6 +99,65 @@ export class SimpleBoost extends LitElement {
     return this._nwcClient;
   }
 
+  private async checkNwcPermissions() {
+    if (!this.nwcClient) {
+      return;
+    }
+    
+    try {
+      await this.nwcClient.enable();
+      const info = await this.nwcClient.getInfo();
+      
+      // Check if the NWC connection has send permission
+      if (!info.methods.includes('makeInvoice')) {
+        console.error('The NWC connection does not have the required send permission. Please check your NWC connection secret.');
+        this.showToastWarning('NWC Error: Missing send permission. Please check your NWC connection secret.');
+      }
+    } catch (error) {
+      console.error('Failed to check NWC permissions:', error);
+      this.showToastWarning('NWC Error: Failed to check permissions. Please verify your connection string.');
+    }
+  }
+
+  private showToastWarning(message: string) {
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.style.position = 'fixed';
+    toast.style.bottom = '20px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.backgroundColor = '#ff4d4f';
+    toast.style.color = 'white';
+    toast.style.padding = '12px 20px';
+    toast.style.borderRadius = '4px';
+    toast.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
+    toast.style.zIndex = '1000';
+    toast.style.maxWidth = '80%';
+    toast.style.textAlign = 'center';
+    toast.style.fontSize = '14px';
+    toast.textContent = message;
+    
+    // Add close button
+    const closeBtn = document.createElement('span');
+    closeBtn.textContent = '×';
+    closeBtn.style.marginLeft = '10px';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.fontWeight = 'bold';
+    closeBtn.style.fontSize = '16px';
+    closeBtn.onclick = () => document.body.removeChild(toast);
+    toast.appendChild(closeBtn);
+    
+    // Add to document
+    document.body.appendChild(toast);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+      if (document.body.contains(toast)) {
+        document.body.removeChild(toast);
+      }
+    }, 5000);
+  }
+
   async getAmountInSats() {
     if (this.currency === 'sats') {
       return Promise.resolve(this.amount);
@@ -108,11 +172,17 @@ export class SimpleBoost extends LitElement {
   private async requestInvoice(args: {amountInSats: number; memo: string}) {
     if (this.nwcClient) {
       await this.nwcClient.enable();
-      const response = await this.nwcClient.makeInvoice({
-        amount: args.amountInSats,
-        defaultMemo: args.memo,
-      });
-      return new Invoice({pr: response.paymentRequest});
+      try {
+        const response = await this.nwcClient.makeInvoice({
+          amount: args.amountInSats,
+          defaultMemo: args.memo,
+        });
+        return new Invoice({pr: response.paymentRequest});
+      } catch (error) {
+        console.error('Failed to create invoice with NWC:', error);
+        this.showToastWarning('Failed to create invoice. Please check if your NWC connection has the required permissions.');
+        throw new Error('Failed to create invoice. Please check if your NWC connection has the required permissions.');
+      }
     } else if (this.address) {
       const ln = new LightningAddress(this.address, { proxy: false });
       await ln.fetch();
