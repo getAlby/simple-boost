@@ -1,0 +1,18 @@
+import { SimpleBoostButton } from "../../../dist/index"
+
+function App() {
+
+  return (
+    <div>
+      <SimpleBoostButton
+        address="hello@getalby.com"
+        amount={1}
+        currency="sats"
+        onSuccess={(e) => console.log('Payment succeeded!', e)}
+      />
+
+    </div>
+  )
+}
+
+export default App
