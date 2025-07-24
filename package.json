@@ -2,10 +2,10 @@
   "name": "simple-boost",
   "version": "2.0.2",
   "description": "The one-click tipping button for your website",
-  "source": "src/simple-boost.ts",
-  "main": "dist/simple-boost.cjs",
-  "module": "dist/simple-boost.js",
-  "types": "dist/simple-boost.d.ts",
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -49,8 +49,12 @@
     "@getalby/bitcoin-connect": "^3.6.3",
     "@getalby/lightning-tools": "^5.1.0",
     "@getalby/sdk": "^3.7.1",
+    "@lit/react": "^1.0.8",
     "js-confetti": "^0.10.2",
-    "lit": "^3.2.1"
+    "lit": "^3.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
@@ -71,6 +75,8 @@
     "eslint": "^8.15.0",
     "lit-analyzer": "^1.2.1",
     "prettier": "^2.6.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.73.0",
     "rollup-plugin-summary": "^1.4.3",
