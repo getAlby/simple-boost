@@ -3,8 +3,15 @@
 /test/
 custom-elements.json
 # top level source
+index.js
+index.d.ts
+index.js.map
 simple-boost.js
 simple-boost.js.map
 simple-boost.d.ts
 simple-boost.d.ts.map
+simple-boost-react.js
+simple-boost-react.js.map
+simple-boost-react.d.ts
+simple-boost-react.d.ts.map
 # only generated for size check
