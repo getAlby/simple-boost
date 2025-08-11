@@ -2,11 +2,24 @@
   "name": "simple-boost",
   "version": "2.0.2",
   "description": "The one-click tipping button for your website",
-  "source": "src/index.ts",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "source": "src/simple-boost.ts",
+  "main": "dist/simple-boost.cjs",
+  "module": "dist/simple-boost.js",
+  "types": "dist/simple-boost.d.ts",
   "type": "module",
+  "exports" : {
+    ".": {
+      "import": "./dist/simple-boost.js",
+      "require": "./dist/simple-boost.cjs",
+      "types": "./dist/simple-boost.d.ts"
+    },
+    "./react": {
+      "import": "./dist/simple-boost-react.js",
+      "require": "./dist/simple-boost-react.cjs",
+      "types": "./dist/simple-boost-react.d.ts"
+    }
+
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc",
@@ -55,6 +68,11 @@
   },
   "peerDependencies": {
     "react": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",

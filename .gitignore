@@ -3,9 +3,6 @@
 /test/
 custom-elements.json
 # top level source
-index.js
-index.d.ts
-index.js.map
 simple-boost.js
 simple-boost.js.map
 simple-boost.d.ts
