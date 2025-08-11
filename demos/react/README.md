@@ -61,7 +61,7 @@ This will launch a local app showcasing how the `SimpleBoostButton` works with y
 In this demo, the component is imported directly from the local `dist/` directory:
 
 ```tsx
-import { SimpleBoostButton } from "../../../dist/index";
+import { SimpleBoostButton } from "../../../dist/simple-boost-react";
 ```
 
 This allows you to test any changes made to the source before publishing.

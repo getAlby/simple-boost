@@ -1,4 +1,4 @@
-import { SimpleBoostButton } from "../../../dist/index"
+import { SimpleBoostButton } from "../../../dist/simple-boost-react"
 
 function App() {
 
