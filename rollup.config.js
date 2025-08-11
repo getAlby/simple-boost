@@ -38,7 +38,9 @@ export default [
   },
   {
     input: 'dist/simple-boost-react.js',
-    output: { file: 'dist/simple-boost-react.bundled.js', format: 'esm', inlineDynamicImports: true },
+    output: [{ file: 'dist/simple-boost-react.bundled.js', format: 'esm', inlineDynamicImports: true },
+    { file: 'dist/simple-boost-react.bundled.cjs', format: 'cjs', inlineDynamicImports: true }
+    ],
     onwarn,
     plugins
   }
