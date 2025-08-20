@@ -1,87 +1,93 @@
-
 <!doctype html>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><simple-boost> ⌲ Examples ⌲ With NWC wallet</title>
-    <meta name="alby:name" content="Alby - simple-boost"></meta>
-    <link rel="stylesheet" href="../../docs.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
-    <link href="../../prism-okaidia.css" rel="stylesheet" />
-    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="/node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../../simple-boost.bundled.js"></script>
-  </head>
-  <body>
-    
-<header>
-  <h1>&lt;simple-boost></h1>
-  <h2>The one-click tipping button</h2>
-</header>
-    
-<nav>
-  <a href="../../">Home</a>
-  <a href="../">Examples</a>
-  <a href="../../api/">API</a>
-  <a href="../../install/">Install</a>
-</nav>
-    <div id="main-wrapper">
-      <main>
-        
-    <h1>Example: NWC</h1>
-    <section class="examples">
-      <nav class="collection">
-        <ul>
-          
-                  <li class=>
-                    <a href="../">A basic example</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../disable-confetti/">Disable confetti</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../fiat-amounts/">Fiat amounts</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../lightning-address/">Lightning Address Support</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../events/">JavaScript Events</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../custom-styles/">Custom Styles</a>
-                  </li>
-                
-                  <li class=selected>
-                    <a href="">Support for any NWC wallet</a>
-                  </li>
-                
-        </ul>
-      </nav>
-      <div>
-        <p>Simply receive boosts to any wallet that supports the <a href="https://nwc.dev">NWC protocol</a>.</p>
-<p>Use a NWC wallet set the NWC connection secret in the <code>nwc</code> attribute.</p>
-<p><simple-boost nwc="nostr+walletconnect://dc7793a661a256ccc0f01c527c776e659048c36a58d2218d9d8a93dcb7348d1c?relay=wss://relay.albylabs.com&secret=a4a5ba4d7f4b03b9173729c3b80da90e7efb28ae5bd124d17a1cbfe3bc7241a5&lud16=reddust43292@getalby.com" class="bootstrap"></simple-boost></p>
-<h3>HTML</h3>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">nwc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nostr+walletconnect://....<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
 
-      </div>
-    </section>
-  
-      </main>
-    </div>
-    
-<footer>
-  <p>
-    Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
-  </p>
-</footer>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><simple-boost> ⌲ Examples ⌲ With NWC wallet</title>
+  <meta name="alby:name" content="Alby - simple-boost">
+  </meta>
+  <link rel="stylesheet" href="../../docs.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
+  <link href="../../prism-okaidia.css" rel="stylesheet" />
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/lit/polyfill-support.js"></script>
+  <script type="module" src="../../simple-boost.bundled.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>&lt;simple-boost></h1>
+    <h2>The one-click tipping button</h2>
+  </header>
+
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../">Examples</a>
+    <a href="../../api/">API</a>
+    <a href="../../install/">Install</a>
+  </nav>
+  <div id="main-wrapper">
+    <main>
+
+      <h1>Example: NWC</h1>
+      <section class="examples">
+        <nav class="collection">
+          <ul>
+
+            <li class=>
+              <a href="../">A basic example</a>
+            </li>
+
+            <li class=>
+              <a href="../disable-confetti/">Disable confetti</a>
+            </li>
+
+            <li class=>
+              <a href="../fiat-amounts/">Fiat amounts</a>
+            </li>
+
+            <li class=>
+              <a href="../lightning-address/">Lightning Address Support</a>
+            </li>
+
+            <li class=>
+              <a href="../events/">JavaScript Events</a>
+            </li>
+
+            <li class=>
+              <a href="../custom-styles/">Custom Styles</a>
+            </li>
+
+            <li class=selected>
+              <a href="">Support for any NWC wallet</a>
+            </li>
+
+          </ul>
+        </nav>
+        <div>
+          <p>Simply receive boosts to any wallet that supports the <a href="https://nwc.dev">NWC protocol</a>.</p>
+          <p>Use a NWC wallet set the NWC connection secret in the <code>nwc</code> attribute.</p>
+          <p><simple-boost
+              nwc="nostr+walletconnect://dc7793a661a256ccc0f01c527c776e659048c36a58d2218d9d8a93dcb7348d1c?relay=wss://relay.albylabs.com&secret=a4a5ba4d7f4b03b9173729c3b80da90e7efb28ae5bd124d17a1cbfe3bc7241a5&lud16=reddust43292@getalby.com"
+              class="bootstrap"></simple-boost></p>
+          <h3>HTML</h3>
+          <pre
+            class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">nwc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nostr+walletconnect://....<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>
+      Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
+    </p>
+  </footer>
+</body>
+
 </html>
