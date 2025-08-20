@@ -14,6 +14,7 @@
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script src="/node_modules/lit/polyfill-support.js"></script>
   <script type="module" src="../../simple-boost.bundled.js"></script>
+  <script src="../../prism.js"></script>
 </head>
 
 <body>
@@ -71,12 +72,16 @@
           <p>Simply receive boosts to any wallet that supports the <a href="https://nwc.dev">NWC protocol</a>.</p>
           <p>Use a NWC wallet set the NWC connection secret in the <code>nwc</code> attribute.</p>
           <p><simple-boost
-              nwc="nostr+walletconnect://dc7793a661a256ccc0f01c527c776e659048c36a58d2218d9d8a93dcb7348d1c?relay=wss://relay.albylabs.com&secret=a4a5ba4d7f4b03b9173729c3b80da90e7efb28ae5bd124d17a1cbfe3bc7241a5&lud16=reddust43292@getalby.com"
-              class="bootstrap"></simple-boost></p>
+              nwc="nostr+walletconnect://dc7793a661a256ccc0f01c527c776e659048c36a58d2218d9d8a93dcb7348d1c?relay=wss://relay.albylabs.com&secret=a4a5ba4d7f4b03b9173729c3b80da90e7efb28ae5bd124d17a1cbfe3bc7241a5&lud16=reddust43292@getalby.com"></simple-boost>
+          </p>
           <h3>HTML</h3>
           <pre
             class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">nwc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nostr+walletconnect://....<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
 
+          <h3>React</h3>
+          <pre class="language-jsx"><code class="language-jsx">
+            &lt;SimpleBoostButton nwc="nostr+walletconnect://..."/&gt;
+          </code></pre>
         </div>
       </section>
 
