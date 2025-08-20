@@ -14,6 +14,7 @@
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script src="/node_modules/lit/polyfill-support.js"></script>
   <script type="module" src="../../simple-boost.bundled.js"></script>
+  <script src="../../prism.js"> </script>
 </head>
 
 <body>
@@ -69,11 +70,30 @@
         </nav>
         <div>
           <p>By default there will be confetti when a user sends a payment. You can disable this with the
-            <code>no-confetti</code> attribute.</p>
+            <code>no-confetti</code> attribute.
+          </p>
           <p><simple-boost no-confetti="1" class="hey" address="hello@getalby.com"></simple-boost></p>
           <h3>HTML</h3>
           <pre
             class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">no-confetti</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hey<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2100<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+
+          <h3>React</h3>
+
+          <pre class="language-jsx"><code class="language-jsx">
+         import { SimpleBoostButton } from "simple-boost/react"
+       
+                  function Boost() {
+                    return (
+                        &lt;SimpleBoostButton 
+                          noConfetti={true}
+                          className="hey"
+                          address="hello@getalby.com" 
+                          amount={2100}&gt;Support our work&lt;/SimpleBoostButton&gt;
+                    )
+                  }
+                  
+          export default Boost
+         </code></pre>
 
         </div>
       </section>
