@@ -14,6 +14,7 @@
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script src="/node_modules/lit/polyfill-support.js"></script>
   <script type="module" src="../../simple-boost.bundled.js"></script>
+  <script src="../../prism.js"> </script>
 </head>
 
 <body>
@@ -74,6 +75,18 @@
           <h3>HTML</h3>
           <pre
             class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>usd<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>gumroad<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+
+          <h3>React</h3>
+
+          <pre class="language-jsx"><code class="language-jsx">
+               
+            &lt;SimpleBoostButton 
+            currency="usd"
+            amount={5}
+            className="gumroad"
+            address="hello@getalby.com"/&gt;
+     
+            </code></pre>
 
         </div>
       </section>
