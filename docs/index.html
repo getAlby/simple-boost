@@ -14,7 +14,7 @@
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script src="/node_modules/lit/polyfill-support.js"></script>
   <script type="module" src="simple-boost.bundled.js"></script>
-  <script src="./prism.js"> </script>
+  <script src="./prism.js"></script>
 </head>
 
 <body>
@@ -58,20 +58,15 @@
           <pre class="language-jsx"><code class="language-jsx">
         import { SimpleBoostButton } from "simple-boost/react"
         
-        function App() {
+        function Boost() {
           return (
-            &lt;div&gt;
               &lt;SimpleBoostButton 
-                address="hello@getalby.com" 
                 amount={2100} 
-                currency="sats" 
-                onSuccess={(e) =&gt; console.log('Payment succeeded!', e)} 
-              /&gt;
-            &lt;/div&gt;
+                address="hello@getalby.com"/&gt;
           )
         }
         
-        export default App
+        export default Boost
         </code></pre>
         </div>
         <div>
