@@ -1,151 +1,124 @@
+
 <!doctype html>
 
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><simple-boost> ⌲ Home</title>
-  <meta name="alby:name" content="Alby - simple-boost">
-  </meta>
-  <link rel="stylesheet" href="docs.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
-  <link href="prism-okaidia.css" rel="stylesheet" />
-  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="/node_modules/lit/polyfill-support.js"></script>
-  <script type="module" src="simple-boost.bundled.js"></script>
-  <script src="./prism.js"></script>
-</head>
-
-<body>
-
-  <header>
-    <h1>&lt;simple-boost></h1>
-    <h2>The one-click tipping button</h2>
-  </header>
-
-  <nav>
-    <a href="">Home</a>
-    <a href="examples/">Examples</a>
-    <a href="api/">API</a>
-    <a href="install/">Install</a>
-  </nav>
-  <div id="main-wrapper">
-    <main>
-      <h1>&lt;simple-boost&gt;</h1>
-      <p><code>&lt;simple-boost&gt;</code> is the lightning boost button for your website. It is the fastest and easiest
-        way to receive tips and allows your visitors to send support with one simple click.</p>
-      <h2>As easy as HTML</h2>
-      <section class="columns">
-        <div>
-          <p><code>&lt;simple-boost&gt;</code> is just an HTML element configurable with plain HTML attributes. You can
-            it anywhere you can use HTML!</p>
-          <pre
-            class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2100<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
-        </div>
-        <div>
-          <p><simple-boost amount="2100" address="hello@getalby.com"></simple-boost></p>
-        </div>
-      </section>
-      <h2>Use in React/Nextjs</h2>
-      <section class="columns">
-        <div>
-          <p>
-            <code>&lt;SimpleBoostButton /&gt;</code> is the React component version of the Lightning boost button.
-            It lets you easily integrate tipping functionality directly into your React app with just a few lines of
-            code.
-          </p>
-          <pre class="language-jsx"><code class="language-jsx">
-        import { SimpleBoostButton } from "simple-boost/react"
-        
-        function Boost() {
-          return (
-              &lt;SimpleBoostButton 
-                amount={2100} 
-                address="hello@getalby.com"/&gt;
-          )
-        }
-        
-        export default Boost
-        </code></pre>
-        </div>
-        <div>
-          <p><simple-boost amount="2100" address="hello@getalby.com"></simple-boost></p>
-        </div>
-      </section>
-      <h2>Simply loadable from the CDN</h2>
-      <section class="columns">
-        <div>
-          <p><code>&lt;simple-boost&gt;</code> is easy to add on any website. The easiest is to load from the CDN:</p>
-          <pre
-            class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://esm.sh/simple-boost@latest<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.2<span class="token punctuation">"</span></span><br>  <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eur<span class="token punctuation">"</span></span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>spotify<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
-        </div>
-        <div>
-          <p><simple-boost amount="0.2" currency="eur" class="spotify" address="hello@getalby.com"></simple-boost></p>
-        </div>
-      </section>
-      <h2>Works with NWC or a lightning address</h2>
-      <section class="columns">
-        <div>
-          <p><code>&lt;simple-boost&gt;</code> can be used directly with any NWC wallet or a lightning address</p>
-          <pre
-            class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">nwc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>NWC secret with ONLY make invoice and check invoice permission<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
-        </div>
-        <div>
-        </div>
-      </section>
-      <h2>Highly customizable to match your text and style</h2>
-      <p><code>&lt;simple-boost&gt;</code> supports any button content and can easily be customized (see themes). You
-        can use it as any other HTML button.</p>
-      <section class="columns">
-        <div>
-          <pre
-            class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">border</span><span class="token punctuation">:</span>1px solid red<span class="token punctuation">;</span> <span class="token property">padding</span><span class="token punctuation">:</span> 5px</span><span class="token punctuation">"</span></span></span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-boost<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2100<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span>Support my work!&lt;/simple-boost<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
-        </div>
-        <div>
-          <p><simple-boost style="border:1px solid red; padding: 5px" class="my-boost" amount="2100"
-              address="hello@getalby.com">Support my work!</simple-boost></p>
-        </div>
-      </section>
-      <h2>Predefined button themes</h2>
-      <p><code>&lt;simple-boost&gt;</code> comes with a list of themes and can be configured to match your style.</p>
-      <p>Possible theme options: alby, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled,
-        gumroad, spotify</p>
-      <p>If the themes do not fit your style then simply customized it with your own style.</p>
-      <section class="columns">
-        <div>
-          <pre
-            class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hey<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bootstrap<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>gumroad<span class="token punctuation">"</span></span><br>  <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>usd<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>figma-filled<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br>  <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eur<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
-        </div>
-        <div>
-          <p><simple-boost class="hey" address="hello@getalby.com"></simple-boost>
-            <simple-boost class="bootstrap" address="hello@getalby.com"></simple-boost>
-            <simple-boost class="gumroad" currency="USD" amount="1" address="hello@getalby.com"></simple-boost>
-            <simple-boost class="figma-filled" currency="eur" amount="1" address="hello@getalby.com"></simple-boost>
-          </p>
-        </div>
-      </section>
-      <h2>Specify amounts in satoshi or fiat currency</h2>
-      <section class="columns">
-        <div>
-          <p><code>&lt;simple-boost&gt;</code> supports any currency by defining the currency and the amount attribute.
-          </p>
-          <pre
-            class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost-amount</span> <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eur<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Pay 1 EUR<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost-amount</span><span class="token punctuation">></span></span></code></pre>
-        </div>
-        <div>
-          <p><simple-boost currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost></p>
-        </div>
-      </section>
-
-    </main>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><simple-boost> ⌲ Home</title>
+    <meta name="alby:name" content="Alby - simple-boost"></meta>
+    <link rel="stylesheet" href="docs.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
+    <link href="prism-okaidia.css" rel="stylesheet" />
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/lit/polyfill-support.js"></script>
+    <script type="module" src="simple-boost.bundled.js"></script>
+  </head>
+  <body>
+    
+<header>
+  <h1>&lt;simple-boost></h1>
+  <h2>The one-click tipping button</h2>
+</header>
+    
+<nav>
+  <a href="">Home</a>
+  <a href="examples/">Examples</a>
+  <a href="api/">API</a>
+  <a href="install/">Install</a>
+</nav>
+    <div id="main-wrapper">
+      <main>
+        <h1>&lt;simple-boost&gt;</h1>
+<p><code>&lt;simple-boost&gt;</code> is the lightning boost button for your website. It is the fastest and easiest way to receive tips and allows your visitors to send support with one simple click.</p>
+<h2>As easy as HTML</h2>
+<section class="columns">
+  <div>
+<p><code>&lt;simple-boost&gt;</code> is just an HTML element configurable with plain HTML attributes. You can it anywhere you can use HTML!</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2100<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
   </div>
+  <div>
+<p><simple-boost amount="2100" address="hello@getalby.com"></simple-boost></p>
+  </div>
+</section>
+<h2>Use in React/NextJS</h2>
+<section class="columns">
+  <div>
+<p><code>&lt;SimpleBoostButton/&gt;</code> is the React component version of the Lightning boost button.
+It lets you easily integrate tipping functionality directly into your React app with just a few lines of code.</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">SimpleBoostButton</span></span> <span class="token attr-name">amount</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token number">2100</span><span class="token punctuation">}</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+  </div>
+  <div>
+<p><simple-boost amount="2100" address="hello@getalby.com"></simple-boost></p>
+  </div>
+</section>
+<h2>Simply loadable from the CDN</h2>
+<section class="columns">
+  <div>
+<p><code>&lt;simple-boost&gt;</code> is easy to add on any website. The easiest is to load from the CDN:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://esm.sh/simple-boost@latest<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.2<span class="token punctuation">"</span></span><br>  <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eur<span class="token punctuation">"</span></span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>spotify<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+  </div>
+  <div>
+<p><simple-boost amount="0.2" currency="eur" class="spotify" address="hello@getalby.com"></simple-boost></p>
+  </div>
+</section>
+<h2>Works with NWC or a lightning address</h2>
+<section class="columns">
+  <div>
+<p><code>&lt;simple-boost&gt;</code> can be used directly with any NWC wallet or a lightning address</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">nwc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>NWC secret with ONLY make invoice and check invoice permission<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+  </div>
+  <div>
+  </div>
+</section>
+<h2>Highly customizable to match your text and style</h2>
+<p><code>&lt;simple-boost&gt;</code> supports any button content and can easily be customized (see themes). You can use it as any other HTML button.</p>
+<section class="columns">
+  <div>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">border</span><span class="token punctuation">:</span>1px solid red<span class="token punctuation">;</span> <span class="token property">padding</span><span class="token punctuation">:</span> 5px</span><span class="token punctuation">"</span></span></span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-boost<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2100<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span>Support my work!&lt;/simple-boost<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+  </div>
+  <div>
+<p><simple-boost
+    style="border:1px solid red; padding: 5px"
+    class="my-boost"
+    amount="2100"
+    address="hello@getalby.com"
+    >Support my work!</simple-boost></p>
+  </div>
+</section>
+<h2>Predefined button themes</h2>
+<p><code>&lt;simple-boost&gt;</code> comes with a list of themes and can be configured to match your style.</p>
+<p>Possible theme options: alby, hey, figma, figma-filled, next, next-filled, bootstrap, bootstrap-filled, gumroad, spotify</p>
+<p>If the themes do not fit your style then simply customized it with your own style.</p>
+<section class="columns">
+  <div>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hey<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bootstrap<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>gumroad<span class="token punctuation">"</span></span><br>  <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>usd<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>figma-filled<span class="token punctuation">"</span></span><br>  <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><br>  <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eur<span class="token punctuation">"</span></span><br>  <span class="token attr-name">amount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span></code></pre>
+  </div>
+  <div>
+<p><simple-boost class="hey" address="hello@getalby.com"></simple-boost>
+<simple-boost class="bootstrap" address="hello@getalby.com"></simple-boost>
+<simple-boost class="gumroad" currency="USD" amount="1" address="hello@getalby.com"></simple-boost>
+<simple-boost class="figma-filled" currency="eur" amount="1" address="hello@getalby.com"></simple-boost></p>
+  </div>
+</section>
+<h2>Specify amounts in satoshi or fiat currency</h2>
+<section class="columns">
+  <div>
+<p><code>&lt;simple-boost&gt;</code> supports any currency by defining the currency and the amount attribute.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost-amount</span> <span class="token attr-name">currency</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eur<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Pay 1 EUR<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost-amount</span><span class="token punctuation">></span></span></code></pre>
+  </div>
+  <div>
+<p><simple-boost currency="eur" address="hello@getalby.com">Pay 1 EUR</simple-boost></p>
+  </div>
+</section>
 
-  <footer>
-    <p>
-      Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
-    </p>
-  </footer>
-</body>
-
+      </main>
+    </div>
+    
+<footer>
+  <p>
+    Made by <a href="https://getalby.com">Alby</a> - The Bitcoin Lightning App for your Browser
+  </p>
+</footer>
+  </body>
 </html>

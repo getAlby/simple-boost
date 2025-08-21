@@ -31,3 +31,17 @@ Subscibe to the `success` event to get notified once a user has paid and execute
   });
 </script>
 ```
+
+<h3>React</h3>
+
+```jsx
+<SimpleBoostButton id="boost" noConfetti={true} address="hello@getalby.com" 
+  onSuccess={(e) => {
+    console.log(e)
+    alert(`Thanks for the sats! Payment preimage: ${e.detail.preimage}`);
+  }}
+>
+  drop 100 sats
+</SimpleBoostButton>
+
+```

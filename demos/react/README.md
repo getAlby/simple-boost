@@ -33,7 +33,7 @@ This compiles the `simple-boost` and `simple-boost-react` package into the `dist
 1. Move back into the React demo folder:
 
 ```bash
-cd demo/react
+cd demos/react
 ```
 
 2. Install demo app dependencies:

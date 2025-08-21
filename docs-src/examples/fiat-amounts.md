@@ -20,3 +20,14 @@ You can define the amounts in fiat currency (e.g. usd, eur, gbp, etc.) The amoun
   address="hello@getalby.com"
 ></simple-boost>
 ```
+
+<h3>React</h3>
+
+```jsx
+<SimpleBoostButton
+  currency="usd"
+  amount={5}
+  className="gumroad"
+  address="hello@getalby.com"
+/>
+```

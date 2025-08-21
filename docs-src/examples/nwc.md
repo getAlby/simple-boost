@@ -16,6 +16,16 @@ Use a NWC wallet set the NWC connection secret in the `nwc` attribute.
 
 ```html
 <simple-boost
+  class="bootstrap"
   nwc="nostr+walletconnect://...."
 ></simple-boost>
+```
+
+<h3>React</h3>
+
+```jsx
+<SimpleBoostButton
+  className="bootstrap"
+  nwc="nostr+walletconnect://...."
+/>
 ```

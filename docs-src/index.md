@@ -26,6 +26,26 @@ title: <simple-boost> ⌲ Home
   </div>
 </section>
 
+## Use in React/NextJS
+
+<section class="columns">
+  <div>
+
+`<SimpleBoostButton/>` is the React component version of the Lightning boost button.
+It lets you easily integrate tipping functionality directly into your React app with just a few lines of code.
+
+```jsx
+<SimpleBoostButton amount={2100} address="hello@getalby.com"/>
+```
+
+  </div>
+  <div>
+
+<simple-boost amount="2100" address="hello@getalby.com"></simple-boost>
+
+  </div>
+</section>
+
 ## Simply loadable from the CDN
 
 <section class="columns">
