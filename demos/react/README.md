@@ -100,7 +100,7 @@ function App() {
 ## 📁 Folder Structure
 
 ```
-demo/
+demos/
 └── react/
     ├── public/
     ├── src/              # React test app
