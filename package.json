@@ -10,13 +10,12 @@
   "exports": {
     ".": {
       "import": "./dist/simple-boost.js",
-      "require": "./dist/simple-boost.cjs",
       "types": "./dist/simple-boost.d.ts"
     },
     "./react": {
       "import": "./dist/simple-boost-react.js",
       "require": "./dist/simple-boost-react.cjs",
-      "types": "./dist/simple-boost-react.d.ts"
+      "types": "./dist/siple-boost-react.d.ts"
     }
   },
   "scripts": {
@@ -32,7 +31,7 @@
     "docs:clean": "rimraf docs",
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
-    "docs:build": "rollup -c --file docs/simple-boost.bundled.js",
+   "docs:build": "rollup -c rollup.docs.config.js",
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
@@ -63,7 +62,7 @@
     "@getalby/sdk": "^3.7.1",
     "@lit/react": "^1.0.8",
     "js-confetti": "^0.10.2",
-    "lit": "^3.3.1"
+    "lit": "^3.2.1"
   },
   "peerDependencies": {
     "react": ">=17.0.0"
