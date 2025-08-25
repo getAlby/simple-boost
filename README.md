@@ -36,7 +36,7 @@ Both the TypeScript compiler and lit-analyzer are configured to be very strict. 
 
 ## Dev Server
 
-This project uses [@web/dev-server](https://www.npmjs.com/package/@web/dev-server) for previewing the project without additional build steps. Web Dev Server handles resolving Node-style "bare" import specifiers, which aren't supported in browsers. It also automatically transpiles JavaScript and adds polyfills to support older browsers. See [modern-web.dev's Web Dev Server documentation](https://modern-web.dev/docs/dev-server/overview/) for more information.
+This project uses [Vite](https://vitejs.dev/) for local development and preview. Vite provides fast hot-module reloading (HMR), resolves Node-style "bare" imports out of the box, and serves your source files without requiring a separate build step. Unlike Web Dev Server, Vite does not automatically add legacy polyfills — it assumes a modern browser baseline. For more details, see the [Vite documentation](https://vitejs.dev/).
 
 To run the dev server and open the project in a new browser tab:
 
