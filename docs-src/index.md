@@ -108,7 +108,7 @@ It lets you easily integrate tipping functionality directly into your React app 
   class="my-boost"
   amount="2100"
   address="hello@getalby.com"
-  >Support my work!</simple-boost</simple-boost>
+  >Support my work!</simple-boost>
 ```
 
   </div>

@@ -1,14 +1,68 @@
-# simple-boost - The Lightning Payment Button
+# simple-boost – The Lightning Payment Button
 
 A web component button to trigger a WebLN payment request. The easiest and fastest way for your website visitors to send you sats.
 
-Lightning invoices can either be automatically be generates through a LUNRL-pay Lightning Address or the payment can be sent as a keysend payment.
+Lightning invoices can either be automatically generated through a LNURL-pay Lightning Address or the payment can be sent as a keysend payment.
+
+---
+
+## 🚀 Usage
+
+### HTML / Web Component
+
+Include the script and drop the `<simple-boost>` tag anywhere on your page:
+
+```html
+<script type="module" src="https://esm.sh/simple-boost@latest"></script>
+
+<simple-boost 
+  address="hello@getalby.com" 
+  amount="2100" 
+  currency="sats">
+  Support our work
+</simple-boost>
+```
+
+This works without React or any framework — just native Web Components.
+
+---
+
+### React
+
+If you’re using React, you can import the pre-built wrapper:
+> **Note:** This requires you to have **React** installed in your project (`react` and `react-dom`).  
+> The React wrapper won’t work in a non-React project.
+
+```jsx
+import { SimpleBoostButton } from "simple-boost/react";
+
+function Boost() {
+  return (
+    <SimpleBoostButton
+      address="hello@getalby.com"
+      amount={2100}
+      currency="sats"
+    >
+      Support our work
+    </SimpleBoostButton>
+  );
+}
+
+export default Boost;
+```
+
+This uses the same web component under the hood, but wrapped for React via `@lit/react`.
+
+---
 
 ## Demo and Documentation
 
-Have a look at the [docs](https://getalby.github.io/simple-boost/) and [examples](https://getalby.github.io/simple-boost/examples/).
+* [Documentation](https://getalby.github.io/simple-boost/)
+* [Examples](https://getalby.github.io/simple-boost/examples/)
 
-## Development setup
+---
+
+## Development Setup
 
 Install dependencies:
 
@@ -16,48 +70,55 @@ Install dependencies:
 npm i
 ```
 
-## Build
+### Build
 
-This sample uses the TypeScript compiler to produce JavaScript that runs in modern browsers.
-
-To build the JavaScript version of your component:
+Compile the TypeScript sources:
 
 ```bash
 npm run build
 ```
 
-To watch files and rebuild when the files are modified, run the following command in a separate shell:
+Watch for changes:
 
 ```bash
 npm run build:watch
 ```
 
-Both the TypeScript compiler and lit-analyzer are configured to be very strict. You may want to change `tsconfig.json` to make them less strict.
+### Dev Server
 
-## Dev Server
-
-This project uses [Vite](https://vitejs.dev/) for local development and preview. Vite provides fast hot-module reloading (HMR), resolves Node-style "bare" imports out of the box, and serves your source files without requiring a separate build step. Unlike Web Dev Server, Vite does not automatically add legacy polyfills — it assumes a modern browser baseline. For more details, see the [Vite documentation](https://vitejs.dev/).
-
-To run the dev server and open the project in a new browser tab:
+Run local dev server with [Vite](https://vitejs.dev/):
 
 ```bash
 npm run serve
 ```
 
-There is a development HTML file located at `/dev/index.html` that you can view at http://localhost:8000/dev/index.html. Note that this command will serve your code using Lit's development mode (with more verbose errors). To serve your code against Lit's production mode, use `npm run serve:prod`.
+Open: [http://localhost:8000/dev/index.html](http://localhost:8000/dev/index.html)
 
-## Docs
+For production mode:
 
-Generate the `/docs` website from the `docs-src` sources.
+```bash
+npm run serve:prod
+```
+
+---
+
+## Documentation Site
+
+Generate docs:
 
 ```bash
 npm run docs
 ```
 
-To serve the site locally, run:
+Serve docs locally:
 
 ```bash
 npm run docs:serve
 ```
 
-The site will usually be served at http://localhost:8000.
+Docs will usually be served at: [http://localhost:8000](http://localhost:8000)
+
+
+## Credits
+
+Built with ⚡ by the [Alby](https://getalby.com) team and contributors.
