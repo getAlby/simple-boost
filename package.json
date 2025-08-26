@@ -58,15 +58,22 @@
     "@getalby/bitcoin-connect": "^3.6.3",
     "@getalby/lightning-tools": "^5.1.0",
     "@getalby/sdk": "^3.7.1",
-    "@lit/react": "^1.0.8",
     "js-confetti": "^0.10.2",
     "lit": "^3.2.1"
   },
   "peerDependencies": {
-    "react": ">=17.0.0"
+    "@lit/react": "^1.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "@lit/react": {
       "optional": true
     }
   },
@@ -74,6 +81,7 @@
     "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@custom-elements-manifest/analyzer": "^0.6.3",
+    "@lit/react": "^1.0.8",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
@@ -85,7 +93,8 @@
     "eslint": "^8.15.0",
     "lit-analyzer": "^1.2.1",
     "prettier": "^2.6.2",
-    "react": "^19.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.73.0",
     "rollup-plugin-summary": "^1.4.3",

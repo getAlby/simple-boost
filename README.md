@@ -27,11 +27,23 @@ This works without React or any framework — just native Web Components.
 
 ---
 
+Sure! Here’s the **Markdown version** of that user-friendly React peer dependency warning section exactly as you requested:
+
+---
+
 ### React
 
-If you’re using React, you can import the pre-built wrapper:
-> **Note:** This requires you to have **React** installed in your project (`react` and `react-dom`).  
-> The React wrapper won’t work in a non-React project.
+⚠️ **Important: Required Packages**
+
+> The React wrapper **depends on the following packages to work**:  
+> `react`, `react-dom`, and `@lit/react`  
+> Installing these ensures the component works correctly in your React project.
+
+```bash
+npm install react react-dom @lit/react
+````
+
+> The React wrapper will **not work in a non-React project**.
 
 ```jsx
 import { SimpleBoostButton } from "simple-boost/react";
@@ -52,6 +64,7 @@ export default Boost;
 ```
 
 This uses the same web component under the hood, but wrapped for React via `@lit/react`.
+
 
 ---
 
