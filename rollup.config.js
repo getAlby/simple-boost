@@ -18,7 +18,7 @@ const plugins = [
     ecma: 2017,
     module: true,
     warnings: true,
-    mangle: { properties: { regex: /^__/ } }
+    mangle: { properties: { regex: /^__/ } },
   }),
   summary()
 ];
@@ -32,16 +32,30 @@ const onwarn = (warning) => {
 export default [
   {
     input: 'dist/simple-boost.js',
-    output: { file: 'dist/simple-boost.bundled.js', format: 'esm', inlineDynamicImports: true },
+    output: {
+      file: 'dist/simple-boost.bundled.js',
+      format: 'esm',
+      inlineDynamicImports: true,
+    },
     onwarn,
-    plugins
+    plugins,
   },
   {
     input: 'dist/simple-boost-react.js',
-    output: [{ file: 'dist/simple-boost-react.bundled.js', format: 'esm', inlineDynamicImports: true },
-    { file: 'dist/simple-boost-react.bundled.cjs', format: 'cjs', inlineDynamicImports: true }
+    output: [
+      {
+        file: 'dist/simple-boost-react.bundled.js',
+        format: 'esm',
+        inlineDynamicImports: true,
+      },
+      {
+        file: 'dist/simple-boost-react.bundled.cjs',
+        format: 'cjs',
+        inlineDynamicImports: true,
+      },
     ],
     onwarn,
-    plugins
-  }
+    plugins,
+    external: ['react', 'react-dom', "@lit/react"]
+  },
 ];
