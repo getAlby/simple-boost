@@ -3,7 +3,7 @@
   "version": "2.0.2",
   "description": "The one-click tipping button for your website",
   "source": "src/simple-boost.ts",
-  "main": "dist/simple-boost.cjs",
+  "main": "dist/simple-boost.js",
   "module": "dist/simple-boost.js",
   "types": "dist/simple-boost.d.ts",
   "type": "module",
@@ -13,7 +13,7 @@
       "import": "./dist/simple-boost.js"
     },
     "./react": {
-      "types": "./dist/siple-boost-react.d.ts",
+      "types": "./dist/simple-boost-react.d.ts",
       "import": "./dist/simple-boost-react.js",
       "require": "./dist/simple-boost-react.cjs"
     }
