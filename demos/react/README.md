@@ -123,7 +123,7 @@ npm install simple-boost
 Then import it like this:
 
 ```tsx
-import { SimpleBoostButton } from "simple-boost";
+import { SimpleBoostButton } from "simple-boost/react";
 ```
 
 ---

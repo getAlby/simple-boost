@@ -23,13 +23,6 @@ Include the script and drop the `<simple-boost>` tag anywhere on your page:
 </simple-boost>
 ```
 
-This works without React or any framework — just native Web Components.
-
----
-
-Sure! Here’s the **Markdown version** of that user-friendly React peer dependency warning section exactly as you requested:
-
----
 
 ### React
 
@@ -62,11 +55,6 @@ function Boost() {
 
 export default Boost;
 ```
-
-This uses the same web component under the hood, but wrapped for React via `@lit/react`.
-
-
----
 
 ## Demo and Documentation
 
