@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><simple-boost> ⌲ Examples ⌲ JavaScript Events</title>
-    <meta name="alby:name" content="Alby - simple-boost"></meta>
+    <meta name="alby:name" content="Alby - simple-boost">
     <link rel="stylesheet" href="../../docs.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto+Mono">
     <link href="../../prism-okaidia.css" rel="stylesheet" />
@@ -35,31 +35,31 @@
       <nav class="collection">
         <ul>
           
-                  <li class=>
-                    <a href="../">A basic example</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../disable-confetti/">Disable confetti</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../fiat-amounts/">Fiat amounts</a>
-                  </li>
-                
-                  <li class=>
-                    <a href="../lightning-address/">Lightning Address Support</a>
-                  </li>
-                
-                  <li class=selected>
-                    <a href="">JavaScript Events</a>
-                  </li>
-                
-                  <li class=>
+                  <li false>
                     <a href="../custom-styles/">Custom Styles</a>
                   </li>
                 
-                  <li class=>
+                  <li false>
+                    <a href="../disable-confetti/">Disable confetti</a>
+                  </li>
+                
+                  <li class="selected">
+                    <a href="">JavaScript Events</a>
+                  </li>
+                
+                  <li false>
+                    <a href="../fiat-amounts/">Fiat amounts</a>
+                  </li>
+                
+                  <li false>
+                    <a href="../">A basic example</a>
+                  </li>
+                
+                  <li false>
+                    <a href="../lightning-address/">Lightning Address Support</a>
+                  </li>
+                
+                  <li false>
                     <a href="../nwc/">Support for any NWC wallet</a>
                   </li>
                 
@@ -78,6 +78,8 @@
 </script>
 <h3>HTML</h3>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>simple-boost</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>boost<span class="token punctuation">"</span></span> <span class="token attr-name">no-confetti</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  drop 100 sats<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>simple-boost</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'boost'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Thanks for the sats! Payment preimage: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>e<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>preimage<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<h3>React</h3>
+<pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">SimpleBoostButton</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>boost<span class="token punctuation">"</span></span> <span class="token attr-name">noConfetti</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span></span> <span class="token attr-name">address</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello@getalby.com<span class="token punctuation">"</span></span> <br>  <span class="token attr-name">onSuccess</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><br>    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Thanks for the sats! Payment preimage: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>e<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>preimage<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">}</span></span><br><span class="token punctuation">></span></span><span class="token plain-text"><br>  drop 100 sats<br></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">SimpleBoostButton</span></span><span class="token punctuation">></span></span><br></code></pre>
 
       </div>
     </section>

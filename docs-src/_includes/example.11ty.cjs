@@ -23,7 +23,7 @@ const renderExample = ({name, content, collections, page}) => {
               : collections.example
                   .map(
                     (post) => `
-                  <li class=${post.url === page.url ? 'selected' : ''}>
+                  <li ${post.url === page.url &&  'class="selected"'}>
                     <a href="${relative(
                       page.url,
                       post.url

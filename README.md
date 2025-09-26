@@ -1,14 +1,69 @@
-# simple-boost - The Lightning Payment Button
+# simple-boost – The Lightning Payment Button
 
 A web component button to trigger a WebLN payment request. The easiest and fastest way for your website visitors to send you sats.
 
-Lightning invoices can either be automatically be generates through a LUNRL-pay Lightning Address or the payment can be sent as a keysend payment.
+Lightning invoices can either be automatically generated through a LNURL-pay Lightning Address or the payment can be sent as a keysend payment.
+
+---
+
+## 🚀 Usage
+
+### HTML / Web Component
+
+Include the script and drop the `<simple-boost>` tag anywhere on your page:
+
+```html
+<script type="module" src="https://esm.sh/simple-boost@latest"></script>
+
+<simple-boost 
+  address="hello@getalby.com" 
+  amount="2100" 
+  currency="sats">
+  Support our work
+</simple-boost>
+```
+
+
+### React
+
+⚠️ **Important: Required Packages**
+
+> The React wrapper **depends on the following packages to work**:  
+> `react`, `react-dom`, and `@lit/react`  
+> Installing these ensures the component works correctly in your React project.
+
+```bash
+npm install react react-dom @lit/react
+````
+
+> The React wrapper will **not work in a non-React project**.
+
+```jsx
+import { SimpleBoostButton } from "simple-boost/react";
+
+function Boost() {
+  return (
+    <SimpleBoostButton
+      address="hello@getalby.com"
+      amount={2100}
+      currency="sats"
+    >
+      Support our work
+    </SimpleBoostButton>
+  );
+}
+
+export default Boost;
+```
 
 ## Demo and Documentation
 
-Have a look at the [docs](https://getalby.github.io/simple-boost/) and [examples](https://getalby.github.io/simple-boost/examples/).
+* [Documentation](https://getalby.github.io/simple-boost/)
+* [Examples](https://getalby.github.io/simple-boost/examples/)
 
-## Development setup
+---
+
+## Development Setup
 
 Install dependencies:
 
@@ -16,48 +71,55 @@ Install dependencies:
 npm i
 ```
 
-## Build
+### Build
 
-This sample uses the TypeScript compiler to produce JavaScript that runs in modern browsers.
-
-To build the JavaScript version of your component:
+Compile the TypeScript sources:
 
 ```bash
 npm run build
 ```
 
-To watch files and rebuild when the files are modified, run the following command in a separate shell:
+Watch for changes:
 
 ```bash
 npm run build:watch
 ```
 
-Both the TypeScript compiler and lit-analyzer are configured to be very strict. You may want to change `tsconfig.json` to make them less strict.
+### Dev Server
 
-## Dev Server
-
-This project uses [@web/dev-server](https://www.npmjs.com/package/@web/dev-server) for previewing the project without additional build steps. Web Dev Server handles resolving Node-style "bare" import specifiers, which aren't supported in browsers. It also automatically transpiles JavaScript and adds polyfills to support older browsers. See [modern-web.dev's Web Dev Server documentation](https://modern-web.dev/docs/dev-server/overview/) for more information.
-
-To run the dev server and open the project in a new browser tab:
+Run local dev server with [Vite](https://vitejs.dev/):
 
 ```bash
 npm run serve
 ```
 
-There is a development HTML file located at `/dev/index.html` that you can view at http://localhost:8000/dev/index.html. Note that this command will serve your code using Lit's development mode (with more verbose errors). To serve your code against Lit's production mode, use `npm run serve:prod`.
+Open: [http://localhost:8000/dev/index.html](http://localhost:8000/dev/index.html)
 
-## Docs
+For production mode:
 
-Generate the `/docs` website from the `docs-src` sources.
+```bash
+npm run serve:prod
+```
+
+---
+
+## Documentation Site
+
+Generate docs:
 
 ```bash
 npm run docs
 ```
 
-To serve the site locally, run:
+Serve docs locally:
 
 ```bash
 npm run docs:serve
 ```
 
-The site will usually be served at http://localhost:8000.
+Docs will usually be served at: [http://localhost:8000](http://localhost:8000)
+
+
+## Credits
+
+Built with ⚡ by the [Alby](https://getalby.com) team and contributors.

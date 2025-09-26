@@ -18,3 +18,20 @@ description: A basic example
   Support our work
 </simple-boost>
 ```
+
+<h3>React</h3>
+
+```jsx
+import { SimpleBoostButton } from "simple-boost/react"
+function Boost() {
+  return (
+      <SimpleBoostButton
+        address="hello@getalby.com"
+        amount={2100}
+        currency="sats">
+         Support our work 
+      </SimpleBoostButton>
+  )
+}
+export default Boost
+```

@@ -17,6 +17,17 @@ By default there will be confetti when a user sends a payment. You can disable t
   no-confetti="1"
   class="hey"
   address="hello@getalby.com"
-  amount="2100"
+  amount="100"
 ></simple-boost>
+```
+
+<h3>React</h3>
+
+```jsx
+<SimpleBoostButton
+  noConfetti={true}
+  className="hey"
+  address="hello@getalby.com"
+  amount={100}
+/>
 ```

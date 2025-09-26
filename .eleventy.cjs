@@ -7,7 +7,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(
     'node_modules/@webcomponents/webcomponentsjs'
   );
-  eleventyConfig.addPassthroughCopy('node_modules/lit/polyfill-support.js');
   return {
     dir: {
       input: 'docs-src',

@@ -60,12 +60,15 @@ export class SimpleBoost extends LitElement {
 
   constructor() {
     super();
-    // if no class is configured we use `default` for the default styles
+  }
+
+  override connectedCallback() {
+    super.connectedCallback();
+
+    // Add 'default' class if none is set
     if (this.classList.length === 0) {
       this.classList.add('default');
     }
-
-    //this.addEventListener('click', this.clickHandler);
   }
 
   get formattedAmount() {
@@ -89,7 +92,7 @@ export class SimpleBoost extends LitElement {
     }
 
     this._nwcClient = new webln.NostrWebLNProvider({
-      nostrWalletConnectUrl: this.nwc
+      nostrWalletConnectUrl: this.nwc,
     });
     return this._nwcClient;
   }
@@ -114,7 +117,7 @@ export class SimpleBoost extends LitElement {
       });
       return new Invoice({pr: response.paymentRequest});
     } else if (this.address) {
-      const ln = new LightningAddress(this.address, { proxy: false });
+      const ln = new LightningAddress(this.address, {proxy: false});
       await ln.fetch();
       return await ln.requestInvoice({
         satoshi: args.amountInSats,

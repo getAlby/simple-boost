@@ -20,3 +20,12 @@ Use your Lightning Address in the `address` attribute.
   class="bootstrap"
 ></simple-boost>
 ```
+
+<h3>React</h3>
+
+```jsx
+<SimpleBoostButton
+  address="you@walletofsatoshi.com"
+  className="bootstrap"
+/>
+```
