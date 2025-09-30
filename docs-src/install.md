@@ -18,6 +18,11 @@ and then use the `<simple-boost address="..."></simple-boost>` tag as described 
 If you want to load the JS locally you can use the dist file from [GitHub](https://github.com/getAlby/simple-boost/tree/main/dist) or install it via NPM.
 
 ## Library / Framework
+Install the package:
+
+```bash
+npm install simple-boost
+```
 
 The **Simple Boost** package exposes a React-friendly component called `SimpleBoostButton` that integrates seamlessly with React and Next.js projects.
 

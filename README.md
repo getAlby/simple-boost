@@ -24,6 +24,12 @@ Include the script and drop the `<simple-boost>` tag anywhere on your page:
 
 ### React / Next.js Setup
 
+Install the package:
+
+```bash
+npm install simple-boost
+```
+
 ⚠️ **Important: Required Packages**
 The React wrapper depends on the following packages:
 
