@@ -15,31 +15,42 @@ Include the script and drop the `<simple-boost>` tag anywhere on your page:
 ```html
 <script type="module" src="https://esm.sh/simple-boost@latest"></script>
 
-<simple-boost 
-  address="hello@getalby.com" 
-  amount="2100" 
-  currency="sats">
+<simple-boost address="hello@getalby.com" amount="2100" currency="sats">
   Support our work
 </simple-boost>
 ```
 
+---
 
-### React
+### React / Next.js Setup
+
+Install the package:
+
+```bash
+npm install simple-boost
+```
 
 ⚠️ **Important: Required Packages**
+The React wrapper depends on the following packages:
 
-> The React wrapper **depends on the following packages to work**:  
-> `react`, `react-dom`, and `@lit/react`  
-> Installing these ensures the component works correctly in your React project.
+- `react`
+- `react-dom`
+- `@lit/react`
+
+Install them with:
 
 ```bash
 npm install react react-dom @lit/react
-````
+```
 
-> The React wrapper will **not work in a non-React project**.
+> The React wrapper will **not work in non-React projects**.
+
+---
+
+### Example Usage (React)
 
 ```jsx
-import { SimpleBoostButton } from "simple-boost/react";
+import {SimpleBoostButton} from 'simple-boost/react';
 
 function Boost() {
   return (
@@ -56,10 +67,34 @@ function Boost() {
 export default Boost;
 ```
 
+---
+
+### Example Usage (Next.js 13+ with App Router)
+
+Since this component relies on client-side rendering, remember to add `"use client"` at the top of your file:
+
+```jsx
+'use client';
+
+import {SimpleBoostButton} from 'simple-boost/react';
+
+export default function Boost() {
+  return (
+    <SimpleBoostButton
+      address="hello@getalby.com"
+      amount={2100}
+      currency="sats"
+    >
+      Support our work
+    </SimpleBoostButton>
+  );
+}
+```
+
 ## Demo and Documentation
 
-* [Documentation](https://getalby.github.io/simple-boost/)
-* [Examples](https://getalby.github.io/simple-boost/examples/)
+- [Documentation](https://getalby.github.io/simple-boost/)
+- [Examples](https://getalby.github.io/simple-boost/examples/)
 
 ---
 
@@ -118,7 +153,6 @@ npm run docs:serve
 ```
 
 Docs will usually be served at: [http://localhost:8000](http://localhost:8000)
-
 
 ## Credits
 
