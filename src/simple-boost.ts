@@ -188,31 +188,31 @@ export class SimpleBoost extends LitElement {
           paymentRequest: invoice.paymentRequest,
           preimage: paymentResponse.preimage as string,
         });
+        return;
       } catch (error) {
-        console.error(error);
-        this.isLoading = false;
+        console.error('WebLN payment failed, falling back to payment modal:', error);
       }
-    } else {
-      const {setPaid} = launchPaymentModal({
-        invoice: invoice.paymentRequest,
-        onPaid: (args: {preimage: string}) => {
-          clearInterval(checkPaymentInterval);
-          this.onPaid({
-            paymentRequest: invoice.paymentRequest,
-            preimage: args.preimage,
-          });
-        },
-        onCancelled: () => {
-          clearInterval(checkPaymentInterval);
-          this.isLoading = false;
-        },
-      });
-      const checkPaymentInterval = this.checkPayment(invoice, (args) => {
-        if (args.preimage) {
-          setPaid({preimage: args.preimage});
-        }
-      });
     }
+
+    const {setPaid} = launchPaymentModal({
+      invoice: invoice.paymentRequest,
+      onPaid: (args: {preimage: string}) => {
+        clearInterval(checkPaymentInterval);
+        this.onPaid({
+          paymentRequest: invoice.paymentRequest,
+          preimage: args.preimage,
+        });
+      },
+      onCancelled: () => {
+        clearInterval(checkPaymentInterval);
+        this.isLoading = false;
+      },
+    });
+    const checkPaymentInterval = this.checkPayment(invoice, (args) => {
+      if (args.preimage) {
+        setPaid({preimage: args.preimage});
+      }
+    });
   }
 
   clickHandler(e: MouseEvent) {
