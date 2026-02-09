@@ -18,7 +18,7 @@ export class SimpleBoost extends LitElement {
   static override styles = styles;
 
   /**
-   * The recipient. Either a LNURL-pay/Lightning Address or a node pubkey
+   * The recipient. A LNURL-pay/Lightning Address
    */
   @property({type: String})
   address = '';

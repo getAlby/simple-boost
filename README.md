@@ -2,7 +2,7 @@
 
 A web component button to trigger a WebLN payment request. The easiest and fastest way for your website visitors to send you sats.
 
-Lightning invoices can either be automatically generated through a LNURL-pay Lightning Address or the payment can be sent as a keysend payment.
+Lightning invoices are automatically generated through a LNURL-pay Lightning Address.
 
 ---
 
