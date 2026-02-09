@@ -1,6 +1,6 @@
 {
   "name": "simple-boost",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "The one-click tipping button for your website",
   "source": "src/simple-boost.ts",
   "main": "dist/simple-boost.js",
