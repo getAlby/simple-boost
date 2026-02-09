@@ -117,7 +117,7 @@ export class SimpleBoost extends LitElement {
       });
       return new Invoice({pr: response.paymentRequest});
     } else if (this.address) {
-      const ln = new LightningAddress(this.address, {proxy: false});
+      const ln = new LightningAddress(this.address);
       await ln.fetch();
       return await ln.requestInvoice({
         satoshi: args.amountInSats,
