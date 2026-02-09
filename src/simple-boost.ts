@@ -2,8 +2,8 @@ import {LitElement, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import JSConfetti from 'js-confetti';
 import {styles} from './styles.js';
-import {LightningAddress, fiat, Invoice} from '@getalby/lightning-tools';
-import {webln} from '@getalby/sdk';
+import {LightningAddress, getSatoshiValue, Invoice} from '@getalby/lightning-tools';
+import {NostrWebLNProvider} from '@getalby/sdk';
 import {launchPaymentModal} from '@getalby/bitcoin-connect';
 
 /**
@@ -56,7 +56,7 @@ export class SimpleBoost extends LitElement {
   isLoading = false;
 
   jsConfetti = new JSConfetti();
-  _nwcClient: webln.NostrWebLNProvider | null = null;
+  _nwcClient: NostrWebLNProvider | null = null;
 
   constructor() {
     super();
@@ -91,7 +91,7 @@ export class SimpleBoost extends LitElement {
       return this._nwcClient;
     }
 
-    this._nwcClient = new webln.NostrWebLNProvider({
+    this._nwcClient = new NostrWebLNProvider({
       nostrWalletConnectUrl: this.nwc,
     });
     return this._nwcClient;
@@ -101,7 +101,7 @@ export class SimpleBoost extends LitElement {
     if (this.currency === 'sats') {
       return Promise.resolve(this.amount);
     } else {
-      return fiat.getSatoshiValue({
+      return getSatoshiValue({
         currency: this.currency,
         amount: this.amount,
       });

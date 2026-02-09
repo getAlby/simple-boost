@@ -55,11 +55,11 @@
   "author": "Alby",
   "license": "MIT",
   "dependencies": {
-    "@getalby/bitcoin-connect": "^3.6.3",
-    "@getalby/lightning-tools": "^5.1.0",
-    "@getalby/sdk": "^3.7.1",
-    "js-confetti": "^0.10.2",
-    "lit": "^3.2.1"
+    "@getalby/bitcoin-connect": "^3.12.1",
+    "@getalby/lightning-tools": "^6.1.0",
+    "@getalby/sdk": "^7.0.0",
+    "js-confetti": "^0.13.1",
+    "lit": "^3.3.2"
   },
   "peerDependencies": {
     "@lit/react": "^1.0.0",
